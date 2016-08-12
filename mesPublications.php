@@ -48,6 +48,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['type'], $_POST['nom
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css">
+
 </head>
 <body>
 
@@ -74,9 +76,9 @@ $msg->display();
             <th>Prix</th>
             <th>Type</th>
             <th>Date de mise en ligne</th>
-            <th>Date debut</th>
+            <th>Date début</th>
             <th>Date fin</th>
-            <th>Operations</th>
+            <th>Opérations</th>
         </tr>
         </thead>
         <tbody>
@@ -96,9 +98,9 @@ $msg->display();
                             echo "Gratuit";
                         } ?></td>
                     <td><?php echo $evenementManager->getTypeById($evenement[$i]->getTypePublication()); ?></td>
-                    <td><?php echo $evenement[$i]->getDatePub(); ?></td>
-                    <td><?php echo $evenement[$i]->getDateDb(); ?></td>
-                    <td><?php echo $evenement[$i]->getDateFn(); ?></td>
+                    <td><?php echo date("d-m-Y", strtotime($evenement[$i]->getDatePub())); ?></td>
+                    <td><?php echo date("d-m-Y H:i", strtotime($evenement[$i]->getDateDb())); ?></td>
+                    <td><?php echo date("d-m-Y H:i", strtotime($evenement[$i]->getDateFn())); ?></td>
 
                     <td>
 
@@ -114,8 +116,7 @@ $msg->display();
 
 
                         <button name="deletePub" value="<?php echo $evenement[$i]->getId(); ?>"
-                                data-id="<?php echo $evenement[$i]->getId(); ?>" id="deletePub"
-                                    href="<?php echo $evenement[$i]->getId(); ?>"
+                                data-id="<?php echo $evenement[$i]->getId(); ?>"
                                 class="btn btn-sm btn-danger glyphicon glyphicon-trash" data-toggle="confirmation">
                         </button>
                     </td>
@@ -126,6 +127,19 @@ $msg->display();
 
 
         </tbody>
+        <tfoot>
+        <tr>
+            <th>Nom</th>
+            <th>Photo</th>
+            <th>Lieu</th>
+            <th>Prix</th>
+            <th>Type</th>
+            <th>Date de mise en ligne</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Opérations</th>
+        </tr>
+        </tfoot>
     </table>
 
 
@@ -310,6 +324,9 @@ $msg->display();
     <script type="text/javascript"
             src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+
     <script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
     <script type="text/javascript" src="js/bootstrap-transition.js"></script>
     <script type="text/javascript" src="js/bootstrap-confirmation.min.js"></script>
@@ -320,10 +337,9 @@ $msg->display();
         $(document).ready(function () {
 
 
-
             $('[data-toggle="confirmation"]').confirmation({
-                href: function(elem){
-                    console.log( $(elem).attr('href') );
+                href: function (elem) {
+                    console.log($(elem).attr('href'));
                 },
                 singleton: true,
                 onConfirm: function (e) {
@@ -335,11 +351,11 @@ $msg->display();
 
             $('#dateML').datetimepicker({
                 format: 'DD-MM-YYYY',
-                minDate: new Date(),
+                minDate: new Date()
             }).on('dp.change dp.show', function (e) {
-                $('#form').formValidation('revalidateField', 'dateMiseEnLigneEve');
                 $('#dateDb').data("DateTimePicker").minDate(e.date);
                 $('#dateFin').data("DateTimePicker").minDate(e.date);
+                $('#form').formValidation('revalidateField', 'dateMiseEnLigneEve');
             });
 
 
@@ -390,8 +406,7 @@ $msg->display();
 
             });
 
-
-            $('#example').DataTable({
+            var table = $('#example').DataTable({
                 responsive: {
                     details: {
                         display: $.fn.dataTable.Responsive.display.modal({
@@ -405,8 +420,24 @@ $msg->display();
                             tableClass: 'table'
                         })
                     }
+                },
+                select: {
+                    style: 'single'
                 }
             });
+
+
+            table
+                .on('select', function (e, dt, type, indexes) {
+                   console.log(table.rows(indexes).data().toArray()[0][0]);
+                    var rowData = table.rows(indexes).data().toArray();
+                    // console.log(JSON.stringify( rowData ));
+
+                })
+                .on('deselect', function (e, dt, type, indexes) {
+                    var rowData = table.rows(indexes).data().toArray();
+
+                });
 
         });
 
@@ -414,7 +445,6 @@ $msg->display();
             var parts = date.split(' '), part1 = parts[0], part2 = parts[1];
             part1 = part1.split('-');
             part2 = part2.split(':');
-
             return part1[2] + '-' + part1[1] + '-' + part1[0] + ' ' + part2[0] + ':' + part2[1];
         }
 

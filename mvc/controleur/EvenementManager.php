@@ -173,6 +173,22 @@ class EvenementManager
         return $tab;
     }
 
+    public function exists($donne, $donne2){
+        global $pdo;
+      //  $req = $pdo->prepare("SELECT COUNT(" . $column . ") FROM  evenement WHERE " . $column . " = :value ");
+        $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieueve = :lieu and nomeve = :nom");
+        $req->bindValue(':nom', trim($donne), PDO::PARAM_STR);
+        $req->bindValue(':lieu', trim($donne2), PDO::PARAM_STR);
+        $result = $req->execute();
+
+        if ($result) {
+            $count = $req->fetchColumn();
+        } else {
+            trigger_error('Error executing statement.', E_USER_ERROR);
+        }
+        return ($count == 0) ? true : false;
+    }
+
 
     public function getPdo()
     {

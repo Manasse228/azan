@@ -103,6 +103,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
             <div class="col-md-6">
                 <input  name="lieuEve" value="<?php if(isset($_SESSION['Evenement'])){echo $_SESSION['Evenement']->getLieu();} ?>"
                         type="text" placeholder="Lieu de l'évènement"
+                        id="lieuEve"
                         class="form-control input-md" autocomplete="off" >
                 <span class="help-block">Avépozo Beach</span>
             </div>

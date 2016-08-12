@@ -17,7 +17,21 @@ $(document).ready(function () {
                         max: 80,
                         //min: 10,
                         message: 'Le nom doit avoir au maximum 75 caracteres'
-                    }
+                    },
+                    remote: {
+                        message: "Ce nom d' évènement est déjà utilisé",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                lieuEve: $('input[name="lieuEve"]').val(),
+                                nomEve: $('input[name="nomEve"]').val()
+                            };
+
+
+                        },
+                        type: 'POST',
+
+                    },
                 }
             },
             lieuEve: {
@@ -437,7 +451,6 @@ $(document).ready(function () {
             }
         }
     });
-
 
 
     $('#formPubSuite').formValidation({

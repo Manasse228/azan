@@ -15,10 +15,7 @@ if (isset($_COOKIE['Nefertiti'])) {
 } */
 
 
-if (($_SERVER['REQUEST_METHOD'] == 'POST') &&
-    (isset($_POST['login'],
-            $_POST['password'])
-        && $_POST['signin'] == 'login')) {
+if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['password'])) ) {
 
     $pdo = Connection::getConnexion();
     $userManager = new UserManager($pdo);
