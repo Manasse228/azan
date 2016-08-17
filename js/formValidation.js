@@ -19,26 +19,24 @@ $(document).ready(function () {
                         message: 'Le nom doit avoir au maximum 75 caracteres'
                     },
                     remote: {
-                        message: "Ce nom d' évènement est déjà utilisé",
+                        message: "Ce nom d' évènement est déjà utilisé pour ce même lieu",
                         url: 'ajax/verif.php',
                         data: function (validator) {
                             return {
                                 lieuEve: $('input[name="lieuEve"]').val(),
                                 nomEve: $('input[name="nomEve"]').val()
                             };
-
-
                         },
                         type: 'POST',
-
                     },
                 }
             },
             lieuEve: {
                 validators: {
                     notEmpty: {
-                        message: "Nom de l'évènement requis"
-                    }
+                        message: "Lieu d'évènement requis"
+                    },
+
                 }
             },
             prixEve: {

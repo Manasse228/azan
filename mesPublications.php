@@ -67,18 +67,30 @@ $msg->display();
 <div class="row" style="margin-top: 80px">
 
 
+    <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-9 ">
+
+            <button type="reset" class="btn3d btn btn-danger btn-lg" id="btnDelete" disabled="true"
+                    data-toggle="confirmation">
+                <span class="glyphicon glyphicon-trash"></span>Supprimer
+            </button>
+        </div>
+    </div>
+
+
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Nom</th>
             <th>Photo</th>
             <th>Lieu</th>
-            <th>Prix</th>
+            <th>Entrée</th>
             <th>Type</th>
             <th>Date de mise en ligne</th>
             <th>Date début</th>
             <th>Date fin</th>
-            <th>Opérations</th>
+            <th>Modifier</th>
         </tr>
         </thead>
         <tbody>
@@ -95,8 +107,8 @@ $msg->display();
                     </td>
                     <td><?php echo $evenement[$i]->getLieu(); ?></td>
                     <td><?php if ($evenement[$i]->getPrix() == 0) {
-                            echo "Gratuit";
-                        } ?></td>
+                            echo "Gratuite";
+                        }else{ echo $evenement[$i]->getPrix(); } ?></td>
                     <td><?php echo $evenementManager->getTypeById($evenement[$i]->getTypePublication()); ?></td>
                     <td><?php echo date("d-m-Y", strtotime($evenement[$i]->getDatePub())); ?></td>
                     <td><?php echo date("d-m-Y H:i", strtotime($evenement[$i]->getDateDb())); ?></td>
@@ -114,11 +126,6 @@ $msg->display();
 
                         <?php } ?>
 
-
-                        <button name="deletePub" value="<?php echo $evenement[$i]->getId(); ?>"
-                                data-id="<?php echo $evenement[$i]->getId(); ?>"
-                                class="btn btn-sm btn-danger glyphicon glyphicon-trash" data-toggle="confirmation">
-                        </button>
                     </td>
                 </tr>
             <?php } ?>
@@ -132,12 +139,12 @@ $msg->display();
             <th>Nom</th>
             <th>Photo</th>
             <th>Lieu</th>
-            <th>Prix</th>
+            <th>Entrée</th>
             <th>Type</th>
             <th>Date de mise en ligne</th>
             <th>Date début</th>
             <th>Date fin</th>
-            <th>Opérations</th>
+            <th>Modifier</th>
         </tr>
         </tfoot>
     </table>
@@ -209,9 +216,9 @@ $msg->display();
                                 </div>
                             </div>
 
-                            <!-- Prix -->
+                            <!-- Entrée -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Prix</label>
+                                <label class="col-md-4 control-label" for="textinput">Entrée</label>
                                 <div class="col-md-8">
                                     <input name="prixEve"
                                            type="text" placeholder="Prix de la party"
@@ -337,18 +344,6 @@ $msg->display();
         $(document).ready(function () {
 
 
-            $('[data-toggle="confirmation"]').confirmation({
-                href: function (elem) {
-                    console.log($(elem).attr('href'));
-                },
-                singleton: true,
-                onConfirm: function (e) {
-
-
-                }
-            });
-
-
             $('#dateML').datetimepicker({
                 format: 'DD-MM-YYYY',
                 minDate: new Date()
@@ -386,7 +381,7 @@ $msg->display();
                     success: function (data) {
                         var obj = JSON.parse(data);
                         // console.log(obj.Evenement[0].lieueve + " " + obj.Evenement[0].datedbeve);
-                        console.log(obj.Evenement[0].description);
+                        //console.log(obj.Evenement[0].description);
                         var parts = obj.Evenement[0].datepubeve.split('-');
 
 
@@ -427,17 +422,37 @@ $msg->display();
             });
 
 
+            var rowData;
             table
                 .on('select', function (e, dt, type, indexes) {
-                   console.log(table.rows(indexes).data().toArray()[0][0]);
-                    var rowData = table.rows(indexes).data().toArray();
+                    // console.log(table.rows(indexes).data().toArray()[0]);
+                    rowData = table.rows(indexes).data().toArray();
                     // console.log(JSON.stringify( rowData ));
+                    $("#btnDelete").removeAttr("disabled");
 
                 })
                 .on('deselect', function (e, dt, type, indexes) {
                     var rowData = table.rows(indexes).data().toArray();
-
+                    $("#btnDelete").attr("disabled", "disabled");
                 });
+
+            $('[data-toggle="confirmation"]').confirmation({
+
+                singleton: true,
+                onConfirm: function (e) {
+
+                    var nom=rowData[0][0], lieu=rowData[0][2];
+                    $.ajax({
+                        type: 'post',
+                        datatype: 'JSON',
+                        url: 'ajax/verif.php',
+                        data: {rowNom:  nom  , rowLieu: lieu },
+                        success: function (data) {
+                            console.log(data);
+                        },
+                    });
+                }
+            });
 
         });
 

@@ -67,7 +67,7 @@ class Evenement
                 $this->typePublication = func_get_arg(9);
                 break;
 
-            case 7:
+            case 8:
                 $this->nom = func_get_arg(0);
                 $this->photoDeCouverture = func_get_arg(1);
                 $this->lieu = func_get_arg(2);
@@ -75,6 +75,7 @@ class Evenement
                 $this->dateFn = func_get_arg(4);
                 $this->desription = func_get_arg(5);
                 $this->id = func_get_arg(6);
+                $this->prix = func_get_arg(7);
                 break;
 
 

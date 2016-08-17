@@ -14,6 +14,8 @@ $pdo = Connection::getConnexion();
 $userManager = new UserManager($pdo);
 $evenementManager = new EvenementManager($pdo);
 
+//var_dump( $evenementManager->deleteEvenement('try', 'essayage') );
+
 /*$event = $evenementManager->getEvenementById(41, "Array");
 echo  '{"Evenement":['.json_encode($event, JSON_FORCE_OBJECT|JSON_UNESCAPED_UNICODE).']}' ;*/
 
@@ -21,12 +23,17 @@ if(isset($_POST['rowid'])){
     $id = $_POST['rowid'];
     $event = $evenementManager->getEvenementById($id, "Array");
     echo  '{"Evenement":['.json_encode($event, JSON_FORCE_OBJECT|JSON_UNESCAPED_UNICODE).']}' ;
+}else {
 
-}else{
+    if (isset($_POST['rowNom'], $_POST['rowLieu'])) {
 
-    if(isset($_POST["nomEve"], $_POST["lieuEve"])){
-        $result = $evenementManager->exists($_POST["nomEve"], $_POST["lieuEve"]);
-    }else{
+       $evenementManager->deleteEvenement($_POST['rowNom'], $_POST['rowLieu']) ;
+
+    } else {
+
+    if (isset($_POST["nomEve"], $_POST["lieuEve"])) {
+        $result = $evenementManager->checkNomLieu($_POST["nomEve"], $_POST["lieuEve"]);
+    } else {
         switch ($_POST['type']) {
 
             case 'pseudo':
@@ -41,14 +48,15 @@ if(isset($_POST['rowid'])){
                 $result = $userManager->existEmail($_POST["emailVerif"]);
                 break;
 
-            /* case 'nomEvevenement':
-                 $result = $evenementManager->exists($_POST["nomEve"], $_POST["lieuEve"]);
-                 break; */
+            case 'nomEvevenement':
+                $result = $evenementManager->exists($_POST["nomEve"], $_POST["lieuEve"]);
+                break;
 
             default:
                 break;
         }
     }
+}
 
 
 

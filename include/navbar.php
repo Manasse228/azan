@@ -73,6 +73,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                         <li><a href="updateAccount.php">Modifier profil</a></li>
                         <li><a href="" data-toggle="modal"
                                data-target="#modificationPassword">Modifier mot de passe</a></li>
+                        <li><a style="text-decoration-color: red" href="abonnement.php">Abonnement</a></li>
                     </ul>
                 </li>
 
@@ -96,6 +97,9 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                 </li>
 
                 <li><a href="contact.php">Contact</a></li>
+
+                <li><a style="text-decoration-color: red" href="#">Newsletters</a></li>
+
 
             </ul>
 

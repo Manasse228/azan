@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83c19ed0-ea0c-4a7c-b994-9b8c2eed3813" name="Default" comment="Modification Publications (Verification)">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/basededonnees.php" afterPath="" />
+    <list default="true" id="83c19ed0-ea0c-4a7c-b994-9b8c2eed3813" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/abonnement.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/event/home.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/event/include/footer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/event/include/header.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/event/include/header2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/event/sendemail.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nvoeve2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tiva/events/events2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tiva/index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/06e7111a461c95bda7eb105a920353e2.jpg" afterPath="$PROJECT_DIR$/images/06e7111a461c95bda7eb105a920353e2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/2a609685dc5cbf04df807f0e8ee0f681.png" afterPath="$PROJECT_DIR$/images/2a609685dc5cbf04df807f0e8ee0f681.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/b4d7593f8b47ead2a4191d580b25a8b3.jpg" afterPath="$PROJECT_DIR$/images/b4d7593f8b47ead2a4191d580b25a8b3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/b4d7593f8b47ead2a4191d580b25a8b35.jpg" afterPath="$PROJECT_DIR$/images/b4d7593f8b47ead2a4191d580b25a8b35.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/date-filteration.php" afterPath="$PROJECT_DIR$/ajax/date-filteration.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/verif.php" afterPath="$PROJECT_DIR$/ajax/verif.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/include/contact.php" afterPath="$PROJECT_DIR$/event/include/contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/include/sponsor.php" afterPath="$PROJECT_DIR$/event/include/sponsor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/index.php" afterPath="$PROJECT_DIR$/event/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/js/main.js" afterPath="$PROJECT_DIR$/event/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/navbar.php" afterPath="$PROJECT_DIR$/include/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/formValidation.js" afterPath="$PROJECT_DIR$/js/formValidation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/upload.js" afterPath="$PROJECT_DIR$/js/upload.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mesPublications.php" afterPath="$PROJECT_DIR$/mesPublications.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/controleur/EvenementManager.php" afterPath="$PROJECT_DIR$/mvc/controleur/EvenementManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/modele/Evenement.php" afterPath="$PROJECT_DIR$/mvc/modele/Evenement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvoeve.php" afterPath="$PROJECT_DIR$/nvoeve.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searcheve.php" afterPath="$PROJECT_DIR$/searcheve.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tiva/assets/js/calendar.js" afterPath="$PROJECT_DIR$/tiva/assets/js/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tiva/events/events.php" afterPath="$PROJECT_DIR$/tiva/events/events.php" />
     </list>
     <ignored path="azan.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,67 +86,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nvoeve.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nvoeve.php">
+      <file leaf-file-name="searcheve.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/searcheve.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.625">
-              <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+            <state vertical-scroll-proportion="-41.875">
+              <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
               <folding>
-                <marker date="1471011979821" expanded="true" signature="2165:2192" placeholder="select * fro... typeevenement" />
+                <marker date="1471391409373" expanded="true" signature="845:872" placeholder="select * fro... typeevenement" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formValidation.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/formValidation.js">
+      <file leaf-file-name="date-filteration.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajax/date-filteration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6774848">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="verif.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/verif.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="azan.evenement" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.evenement">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvenementManager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mvc/controleur/EvenementManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.041667">
-              <caret line="175" column="33" selection-start-line="175" selection-start-column="27" selection-end-line="175" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.8137931">
+              <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
               <folding>
-                <marker date="1470968881891" expanded="true" signature="344:613" placeholder="INSERT INTO evenement... " />
-                <marker date="1470968881891" expanded="true" signature="2414:2671" placeholder="UPDATE evene... " />
-                <marker date="1470968881891" expanded="true" signature="4108:4360" placeholder="SELECT e.nom... evenement" />
-                <marker date="1470968881891" expanded="true" signature="4972:5013" placeholder="SELECT * FRO... evenement" />
-                <marker date="1470968881891" expanded="true" signature="5669:5717" placeholder="SELECT libel... typeevenement" />
-                <marker date="1470968881891" expanded="true" signature="5951:5996" placeholder="SELECT * FRO... evenement" />
-                <marker date="1470968881891" expanded="true" signature="6709:6758" placeholder="SELECT COUNT... evenement" />
-                <marker date="1470968881891" expanded="true" signature="6709:6780" placeholder="SELECT COUNT... evenement" />
+                <marker date="1471404441405" expanded="true" signature="539:725" placeholder="SELECT * FRO... evenement" />
+                <marker date="1471404441405" expanded="true" signature="759:898" placeholder="SELECT * FRO... evenement" />
+                <marker date="1471404441405" expanded="true" signature="1301:1458" placeholder="SELECT p.lie... photos" />
+                <marker date="1471404441405" expanded="true" signature="1678:2765" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1700:2759" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1727:2182" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1819:1947" placeholder="..." />
+                <marker date="1471404441405" expanded="false" signature="1871:1884" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1971:2000" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1971:2070" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="1971:2176" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2212:2440" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2225:2246" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2225:2280" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2225:2281" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2225:2434" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2469:2747" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2491:2498" placeholder="..." />
+                <marker date="1471404441405" expanded="true" signature="2491:2738" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -149,16 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/event/css/font-awesome.min.css" />
-        <option value="$PROJECT_DIR$/event/js/main.js" />
-        <option value="$PROJECT_DIR$/event/js/TimeCircles.js" />
-        <option value="$PROJECT_DIR$/event/css/main.css" />
-        <option value="$PROJECT_DIR$/mvc/controleur/FlashMessages.php" />
-        <option value="$PROJECT_DIR$/event/include/album.php" />
-        <option value="$PROJECT_DIR$/event/index.php" />
-        <option value="$PROJECT_DIR$/tiva/index.html" />
-        <option value="$PROJECT_DIR$/tiva/assets/js/jquery.min.js" />
-        <option value="$PROJECT_DIR$/css/login.css" />
         <option value="$PROJECT_DIR$/tiva/assets/languages/en.js" />
         <option value="$PROJECT_DIR$/tiva/events/events.json" />
         <option value="$PROJECT_DIR$/mvc/modele/Prototype.php" />
@@ -172,12 +161,8 @@
         <option value="$PROJECT_DIR$/mvc/controleur/deconnexion.php" />
         <option value="$PROJECT_DIR$/mvc/controleur/UserManager.php" />
         <option value="$PROJECT_DIR$/mvc/modele/User.php" />
-        <option value="$PROJECT_DIR$/event/include/footer.php" />
-        <option value="$PROJECT_DIR$/tiva/assets/js/calendar.js" />
-        <option value="$PROJECT_DIR$/ajax/date-filteration.php" />
         <option value="$PROJECT_DIR$/js/jquery.dataTables.min.js" />
         <option value="$PROJECT_DIR$/css/test.css" />
-        <option value="$PROJECT_DIR$/mvc/modele/Evenement.php" />
         <option value="$PROJECT_DIR$/mvc/controleur/PhotosManager.php" />
         <option value="$PROJECT_DIR$/mvc/controleur/Utilities.php" />
         <option value="$PROJECT_DIR$/contact.php" />
@@ -185,21 +170,35 @@
         <option value="$PROJECT_DIR$/include/newEveForm.php" />
         <option value="$PROJECT_DIR$/include/headerfile.php" />
         <option value="$PROJECT_DIR$/nvoevesuite.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/tiva/config/config.js" />
-        <option value="$PROJECT_DIR$/mvc/controleur/autoload.php" />
         <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/mvc/modele/Connection.php" />
-        <option value="$PROJECT_DIR$/tiva/events/events.php" />
         <option value="$PROJECT_DIR$/basededonnees.php" />
-        <option value="$PROJECT_DIR$/include/navbar.php" />
-        <option value="$PROJECT_DIR$/mesPublications.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/console.sql" />
-        <option value="$PROJECT_DIR$/mvc/controleur/EvenementManager.php" />
         <option value="dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.evenement" />
-        <option value="$PROJECT_DIR$/nvoeve.php" />
         <option value="$PROJECT_DIR$/js/formValidation.js" />
+        <option value="dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.photos" />
+        <option value="$PROJECT_DIR$/mvc/modele/Photos.php" />
         <option value="$PROJECT_DIR$/ajax/verif.php" />
+        <option value="$PROJECT_DIR$/event/include/sponsor.php" />
+        <option value="$PROJECT_DIR$/event/sendemail.php" />
+        <option value="$PROJECT_DIR$/mvc/modele/Connection.php" />
+        <option value="$PROJECT_DIR$/mvc/controleur/autoload.php" />
+        <option value="$PROJECT_DIR$/event/include/footer.php" />
+        <option value="$PROJECT_DIR$/event/js/main.js" />
+        <option value="$PROJECT_DIR$/event/include/contact.php" />
+        <option value="$PROJECT_DIR$/event/index.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/console.sql" />
+        <option value="$PROJECT_DIR$/searcheve.php" />
+        <option value="$PROJECT_DIR$/gossip.php" />
+        <option value="$PROJECT_DIR$/abonnement.php" />
+        <option value="$PROJECT_DIR$/include/navbar.php" />
+        <option value="$PROJECT_DIR$/nvoeve.php" />
+        <option value="$PROJECT_DIR$/mesPublications.php" />
+        <option value="$PROJECT_DIR$/tiva/config/config.js" />
+        <option value="$PROJECT_DIR$/tiva/assets/js/calendar.js" />
+        <option value="$PROJECT_DIR$/mvc/controleur/EvenementManager.php" />
+        <option value="$PROJECT_DIR$/mvc/modele/Evenement.php" />
+        <option value="$PROJECT_DIR$/tiva/events/events.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/ajax/date-filteration.php" />
       </list>
     </option>
   </component>
@@ -274,20 +273,6 @@
               <option name="myItemId" value="tiva" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="azan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="azan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tiva" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="events" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -303,7 +288,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mvc" />
+              <option name="myItemId" value="tiva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="azan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,10 +365,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modele" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,20 +383,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="azan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="azan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -387,8 +416,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -567,7 +596,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470651424597</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Modification Publications (Verification)">
+      <created>1471018525101</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1471018525101</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -575,25 +610,25 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975152" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21826729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16319677" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19409" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16319677" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24983211" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="165" y="208" width="1335" height="676" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -627,86 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/2a609685dc5cbf04df807f0e8ee0f681.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16064256">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/assets/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/assets/css/calendar_full.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3601071">
-          <caret line="218" column="113" selection-start-line="218" selection-start-column="99" selection-end-line="218" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/assets/css/calendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3574297">
-          <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/modele/Prototype.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.typephoto">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvoeve2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.638554">
-          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5642023">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/inscription.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02008032">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/activationAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34136546">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/password.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8514056">
@@ -714,36 +669,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/event/include/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12048193">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/events/events2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.044176705">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.user">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/modele/Photos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4347826">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -754,36 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.photos">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mvc/controleur/FlashMessages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48460507">
           <caret line="74" column="57" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02008032">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/modele/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7456493">
-          <caret line="139" column="32" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -808,38 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/date-filteration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7429719">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038910504">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/assets/js/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.428016">
-          <caret line="793" column="20" selection-start-line="793" selection-start-column="20" selection-end-line="793" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tiva/events/events.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02008032">
           <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvoevesuite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.309237">
-          <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -864,40 +744,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/modele/Evenement.php">
+    <entry file="file://$PROJECT_DIR$/inscription.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.25">
-          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tiva/events/events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.5">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.2689655">
+          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/navbar.php">
+    <entry file="file://$PROJECT_DIR$/js/inscription.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18206158">
-          <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/formValidation.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="56.58621">
+          <caret line="9" column="18681" selection-start-line="9" selection-start-column="18681" selection-end-line="9" selection-end-column="18681" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/formValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/modele/Photos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41379312">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/verif.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1172414">
+          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.typephoto">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event/images/light.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/b4d7593f8b47ead2a4191d580b25a8b35.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event/include/sponsor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12413793">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34344828">
+          <caret line="868" column="9" selection-start-line="868" selection-start-column="9" selection-end-line="868" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/controleur/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/modele/Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27310345">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.photos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53938586">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/headerfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20689656">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mvc/controleur/UserManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="239" column="61" selection-start-line="239" selection-start-column="61" selection-end-line="239" selection-end-column="61" />
+        <state vertical-scroll-proportion="-8.166667">
+          <caret line="205" column="77" selection-start-line="205" selection-start-column="77" selection-end-line="205" selection-end-column="77" />
           <folding>
             <marker date="1469451982891" expanded="true" signature="320:474" placeholder="INSERT INTO user... " />
             <marker date="1469451982891" expanded="true" signature="1504:1659" placeholder="UPDATE user " />
@@ -912,133 +889,249 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/modele/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.875">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mvc/controleur/Utilities.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43448275">
-          <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+        <state vertical-scroll-proportion="-21.458334">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inscription.php">
+    <entry file="file://$PROJECT_DIR$/event/include/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2689655">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+        <state vertical-scroll-proportion="-19.375">
+          <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/inscription.js">
+    <entry file="file://$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33244327">
+          <caret line="415" column="15" selection-start-line="415" selection-start-column="15" selection-end-line="415" selection-end-column="15" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/headerfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24827586">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/modele/Connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37931034">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/controleur/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14482759">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="83" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/controleur/EvenementManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.041667">
-          <caret line="175" column="33" selection-start-line="175" selection-start-column="27" selection-end-line="175" selection-end-column="33" />
-          <folding>
-            <marker date="1470968881891" expanded="true" signature="344:613" placeholder="INSERT INTO evenement... " />
-            <marker date="1470968881891" expanded="true" signature="2414:2671" placeholder="UPDATE evene... " />
-            <marker date="1470968881891" expanded="true" signature="4108:4360" placeholder="SELECT e.nom... evenement" />
-            <marker date="1470968881891" expanded="true" signature="4972:5013" placeholder="SELECT * FRO... evenement" />
-            <marker date="1470968881891" expanded="true" signature="5669:5717" placeholder="SELECT libel... typeevenement" />
-            <marker date="1470968881891" expanded="true" signature="5951:5996" placeholder="SELECT * FRO... evenement" />
-            <marker date="1470968881891" expanded="true" signature="6709:6758" placeholder="SELECT COUNT... evenement" />
-            <marker date="1470968881891" expanded="true" signature="6709:6780" placeholder="SELECT COUNT... evenement" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/49fa4a5b/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/azan.evenement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a82fa4c9-09b8-4d28-aa3f-259663ec51f9/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5">
+          <caret line="1" column="103" selection-start-line="1" selection-start-column="103" selection-end-line="1" selection-end-column="103" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nvoeve.php">
+    <entry file="file://$PROJECT_DIR$/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.625">
-          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/event/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.537931">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abonnement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39310345">
+          <caret line="43" column="135" selection-start-line="43" selection-start-column="135" selection-end-line="43" selection-end-column="135" />
           <folding>
-            <marker date="1471011979821" expanded="true" signature="2165:2192" placeholder="select * fro... typeevenement" />
+            <marker date="1471392739800" expanded="true" signature="481:508" placeholder="select * fro... typeevenement" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/formValidation.min.js">
+    <entry file="file://$PROJECT_DIR$/include/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="56.58621">
-          <caret line="9" column="18681" selection-start-line="9" selection-start-column="18681" selection-end-line="9" selection-end-column="18681" />
+        <state vertical-scroll-proportion="0.7862069">
+          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mesPublications.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0833335">
-          <caret line="394" column="32" selection-start-line="394" selection-start-column="27" selection-end-line="394" selection-end-column="32" />
+        <state vertical-scroll-proportion="-10.583333">
+          <caret line="218" column="39" selection-start-line="218" selection-start-column="39" selection-end-line="218" selection-end-column="39" />
           <folding>
-            <marker date="1470776683189" expanded="true" signature="6105:6132" placeholder="select * fro... typeevenement" />
+            <marker date="1471393560599" expanded="true" signature="6205:6232" placeholder="select * fro... typeevenement" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/verif.php">
+    <entry file="file://$PROJECT_DIR$/tiva/config/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.020026702">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/formValidation.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6774848">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.33244327">
+          <caret line="992" column="0" selection-start-line="992" selection-start-column="0" selection-end-line="992" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tiva/assets/css/calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1931036">
+          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/controleur/EvenementManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5710345">
+          <caret line="115" column="56" selection-start-line="115" selection-start-column="56" selection-end-line="115" selection-end-column="56" />
+          <folding>
+            <marker date="1471397672367" expanded="true" signature="344:613" placeholder="INSERT INTO evenement... " />
+            <marker date="1471397672367" expanded="true" signature="2414:2671" placeholder="UPDATE evene... " />
+            <marker date="1471397672367" expanded="true" signature="4108:4368" placeholder="SELECT e.nom... evenement" />
+            <marker date="1471397672367" expanded="true" signature="4996:5037" placeholder="SELECT * FRO... evenement" />
+            <marker date="1471397672367" expanded="true" signature="5693:5741" placeholder="SELECT libel... typeevenement" />
+            <marker date="1471397672367" expanded="true" signature="5975:6020" placeholder="SELECT * FRO... evenement" />
+            <marker date="1471397672367" expanded="true" signature="6622:6671" placeholder="SELECT COUNT... evenement" />
+            <marker date="1471397672367" expanded="true" signature="6622:6693" placeholder="SELECT COUNT... evenement" />
+            <marker date="1471397672367" expanded="true" signature="7174:7236" placeholder="Select id fr... evenement" />
+            <marker date="1471397672367" expanded="true" signature="7450:7509" placeholder="select id,id... photos" />
+            <marker date="1471397672367" expanded="true" signature="7480:7509" placeholder="delete from " />
+            <marker date="1471397672367" expanded="true" signature="7874:7901" placeholder="delete from " />
+            <marker date="1471397672367" expanded="true" signature="7874:7907" placeholder="delete from " />
+            <marker date="1471397672367" expanded="true" signature="7874:7908" placeholder="delete from " />
+            <marker date="1471397672367" expanded="true" signature="8048:8084" placeholder="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/modele/Evenement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60137933">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tiva/assets/js/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7284123">
+          <caret line="622" column="97" selection-start-line="622" selection-start-column="97" selection-end-line="622" selection-end-column="97" />
+          <folding>
+            <marker date="1471397074760" expanded="true" signature="12555:12866" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="13854:14185" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="17294:18113" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="17352:17529" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="17588:18089" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="19964:20624" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="23382:23923" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="26463:26968" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="27192:27462" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="27565:27814" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="27999:28374" placeholder="..." />
+            <marker date="1471397074760" expanded="true" signature="28479:28741" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tiva/events/events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.458334">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvoeve.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3793104">
+          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding>
+            <marker date="1471393542210" expanded="true" signature="2612:2639" placeholder="select * fro... typeevenement" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvoevesuite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.0551724">
+          <caret line="196" column="42" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73103446">
+          <caret line="60" column="84" selection-start-line="60" selection-start-column="84" selection-end-line="60" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searcheve.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-41.875">
+          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+          <folding>
+            <marker date="1471391409373" expanded="true" signature="845:872" placeholder="select * fro... typeevenement" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/date-filteration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8137931">
+          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <folding>
+            <marker date="1471404441405" expanded="true" signature="539:725" placeholder="SELECT * FRO... evenement" />
+            <marker date="1471404441405" expanded="true" signature="759:898" placeholder="SELECT * FRO... evenement" />
+            <marker date="1471404441405" expanded="true" signature="1301:1458" placeholder="SELECT p.lie... photos" />
+            <marker date="1471404441405" expanded="true" signature="1678:2765" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1700:2759" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1727:2182" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1819:1947" placeholder="..." />
+            <marker date="1471404441405" expanded="false" signature="1871:1884" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1971:2000" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1971:2070" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="1971:2176" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2212:2440" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2225:2246" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2225:2280" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2225:2281" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2225:2434" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2469:2747" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2491:2498" placeholder="..." />
+            <marker date="1471404441405" expanded="true" signature="2491:2738" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

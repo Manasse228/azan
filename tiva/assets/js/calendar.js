@@ -596,6 +596,14 @@ function showEventDetail(id, layout, day, month, year) {
 			var event_location = '';
 		}
 
+
+		// Event prix
+		if (tiva_events[id].prix) {
+			var event_prix = '<i class="fa fa-money"></i>' + tiva_events[id].prix;
+		} else {
+			var event_prix = '';
+		}
+
 		
 		// Event description
 		if (tiva_events[id].description) {
@@ -612,6 +620,7 @@ function showEventDetail(id, layout, day, month, year) {
 													+ '<div class="event-date"><i class="fa fa-calendar-o"></i>' + event_day + ' le  ' + event_date + event_end_time  + '</div>'
 													+ '<div class="event-time">' + event_time + '</div>'
 													+ '<div class="event-location">' + event_location + '</div>'
+													+ '<div class="event-location">' + event_prix + '</div>'
 													+ event_desc
 												+ '</div>'
 											);

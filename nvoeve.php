@@ -15,10 +15,18 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
     $evenement = new Evenement($_POST['nomEve'], $_POST['lieuEve'], $_POST['dateMiseEnLigneEve'], $_POST['datedebutEve'],
         $_POST['datefinEve'], $_POST['contactEve'], $_POST['prixEve'], $_POST['descriptionEve'], $_SESSION['User']->getId(), $_POST['type']);
 
-
      $_SESSION['Evenement'] = $evenement;
 
-    Utilities::POST_redirect('nvoevesuite.php');
+    $pdo = Connection::getConnexion();
+    $evenementManager = new  EvenementManager($pdo);
+    if($evenementManager->checkNomLieu($evenement->getNom(), $evenement->getLieu()) == false){
+        $msg = new FlashMessages();
+        $msg->error("<b>".$evenement->getNom()."</b> est déjà utilisé pour un autre évènement à <b>".$evenement->getLieu()."</b>");
+    }else{
+        Utilities::POST_redirect('nvoevesuite.php');
+    }
+
+
 }
 
 ?>
@@ -55,6 +63,10 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
 
 <form class="form-horizontal" id="formPub" method="post" role="form"
       action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" >
+    <?php
+    $msg = new FlashMessages();
+    $msg->display();
+    ?>
     <fieldset>
 
         <!-- Form Name -->
@@ -79,7 +91,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
                     <option value="">-- Selectionner --</option>
                     <?php
                     foreach($result as $value){
-                        echo "<option value=".$value['id'].">".utf8_encode($value['libelle'])."</option>";
+                        echo "<option value=".$value['id'].">".$value['libelle']."</option>";
                     }
                     ?>
                 </select>
@@ -109,9 +121,9 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
             </div>
         </div>
 
-        <!-- Prix -->
+        <!-- Entrée -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="textinput">Prix</label>
+            <label class="col-md-4 control-label" for="textinput">Entrée</label>
             <div class="col-md-4">
                 <input  name="prixEve" value="<?php if(isset($_SESSION['Evenement'])){echo $_SESSION['Evenement']->getPrix();} ?>"
                         type="text" placeholder="Prix de la party"

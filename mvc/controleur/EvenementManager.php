@@ -105,7 +105,7 @@ class EvenementManager
     public function getAllEvent()
     {
         global $pdo;
-        $req = $pdo->prepare("SELECT e.nomeve, p.lien, e.lieueve, e.datedbeve, e.datefneve, e.description, e.id
+        $req = $pdo->prepare("SELECT e.nomeve, p.lien, e.lieueve, e.datedbeve, e.datefneve, e.description, e.id, e.prix
         FROM evenement e, photos p, typephoto t
         WHERE e.datepubeve <= now() AND e.datefneve >= now() AND e.id = p.ideve AND p.typephoto = t.id AND t.code = 'couv'");
         $req->execute();
@@ -114,7 +114,7 @@ class EvenementManager
         $tab = array();
         foreach ($data as $value) {
             $tab[] = new Evenement($value["nomeve"], $value["lien"], $value["lieueve"],
-                $value["datedbeve"], $value["datefneve"], $value["description"], $value["id"]);
+                $value["datedbeve"], $value["datefneve"], $value["description"], $value["id"], $value["prix"]);
         }
 
         return $tab;
@@ -173,12 +173,11 @@ class EvenementManager
         return $tab;
     }
 
-    public function exists($donne, $donne2){
+    public function checkNomLieu($nom, $lieu){
         global $pdo;
-      //  $req = $pdo->prepare("SELECT COUNT(" . $column . ") FROM  evenement WHERE " . $column . " = :value ");
         $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieueve = :lieu and nomeve = :nom");
-        $req->bindValue(':nom', trim($donne), PDO::PARAM_STR);
-        $req->bindValue(':lieu', trim($donne2), PDO::PARAM_STR);
+        $req->bindValue(':nom', trim($nom), PDO::PARAM_STR);
+        $req->bindValue(':lieu', trim($lieu), PDO::PARAM_STR);
         $result = $req->execute();
 
         if ($result) {
@@ -187,6 +186,41 @@ class EvenementManager
             trigger_error('Error executing statement.', E_USER_ERROR);
         }
         return ($count == 0) ? true : false;
+    }
+
+    public function deleteEvenement($nom, $lieu){
+        global $pdo;
+
+        $req = $pdo->prepare("Select id from evenement WHERE nomeve= :nom AND lieueve= :lieu");
+        $req->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $req->bindValue(':lieu', $lieu, PDO::PARAM_STR);
+        $req->execute();
+        $result = $req->fetchColumn();
+
+
+         $req = $pdo->prepare(" select id,ideve,lien,typephoto from photos where ideve= :id ");
+         $req->bindValue('id', $result, PDO::PARAM_INT);
+         $req->execute();
+         $data = $req->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach($data as $value){
+           // $tab[] = new Photos( $value["id"], $value["ideve"], $value["typephoto"], $value["lien"] );
+
+            unlink("../images/".$value["lien"]);
+
+            $req = $pdo->prepare("delete from photos where id = :id ");
+            $req->bindValue(':id', $value["id"], PDO::PARAM_INT);
+            $req->execute();
+        }
+
+        $req = $pdo->prepare("delete from evenement where id = :id ");
+        $req->bindValue(':id', $result, PDO::PARAM_INT);
+        $req->execute();
+
+
+
+
     }
 
 

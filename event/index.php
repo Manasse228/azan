@@ -10,11 +10,13 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     $id = $_GET['azan'];
     $pdo = Connection::getConnexion();
 
+    $msg = new FlashMessages();
+
     $evenementManager = new EvenementManager($pdo);
-    $evenement = $evenementManager->getEvenementById($id);
+    $evenement = $evenementManager->getEvenementById($id, "");
 
     $dateDebut = $evenement->getDateDb();
-    var_dump($dateDebut);
+    //var_dump($dateDebut);
 
 
     $userManager = new UserManager($pdo);
@@ -23,8 +25,44 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     $photoManager = new PhotosManager($pdo);
     $photos = $photoManager->getPhotosById($evenement->getId());
 
+    $spon = 0;
+    for ($i = 0; $i < sizeof($photos); $i++) {
+
+        if ($photos[$i]->getTypePhoto() == 3) {
+            $spon++;
+        }
+    }
+
 } else {
     header('Location: ../searcheve.php');
+}
+
+if (($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['name'], $_POST['email'], $_POST['message']))
+    && $_POST['envoiEmail'] == "envoyer"
+) {
+
+
+    $to = trim($user->getEmail());
+    $name = trim(stripslashes($_POST['name']));
+    $email = trim(stripslashes($_POST['email']));
+    $message = trim(stripslashes($_POST['message']));
+    $subject = "Demande de renseignement [ " . $evenement->getNom() . " ]";
+
+
+    $headers = 'From: ' . $name . '<contact@calentiel.info>' . "\r\n";
+    $headers .= 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    // $headers = 'From: '.$name.'' . "\r\n" . 'Reply-To: '.$email.'' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+
+    $message .= "<br /> Voici l'email de l'expéditeur ".$email."<br/> PS: Ne répondait pas à cet email";
+    mail($to, $subject, $message, $headers);
+
+
+   // $msg->success("Votre message a été envoyé avec succès! L'organisateur vous contactera dans les moindres délais");
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -47,15 +85,19 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-  <!--  <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"> -->
+    <!--  <link rel="shortcut icon" href="images/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"> -->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <link rel="stylesheet" href="css/TimeCircles.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/TimeCircles.css"/>
 </head><!--/head-->
 
 <body>
@@ -71,16 +113,17 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.php">
-                        <img class="img-responsive" src="images/logo.png" alt="logo">
-                    </a>
+
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll active"><a href="#home">Home</a></li>
                         <li class="scroll"><a href="#explore">Decompte</a></li>
                         <li class="scroll"><a href="#about">Description</a></li>
-                        <li class="scroll"><a href="#sponsor">Sponsor</a></li>
+
+                        <?php if ($spon != 0) { ?>
+                            <li class="scroll"><a href="#sponsor">Sponsor</a></li> <?php } ?>
+
                         <li class="scroll"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -102,7 +145,9 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
             <?php
             $j = 0;
 
-            for ($i = 0;$i < sizeof($photos);$i++) {
+            for ($i = 0;
+            $i < sizeof($photos);
+            $i++) {
 
             if ($photos[$i]->getTypePhoto() == 1) {
             $j++;
@@ -110,7 +155,8 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
             echo $str;
             ?>
 
-            <img class="img-responsive" alt="slider" style="height: 1000px; " src="../images/<?php echo $photos[$i]->getLien(); ?>">
+            <img class="img-responsive" alt="slider" style="height: 1000px; "
+                 src="../images/<?php echo $photos[$i]->getLien(); ?>">
             <div class="carousel-caption">
                 <h4><?php echo $evenement->getNom(); ?></h4>
             </div>
@@ -125,6 +171,11 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
 </section>
 <!--/#home-->
 
+<?php
+//$msg = new FlashMessages();
+//$msg->display();
+?>
+
 <section id="explore">
     <div class="container">
         <div class="row">
@@ -136,7 +187,7 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
             </div>
             <div class="col-sm-7 col-md-6">
 
-                <div id="DateCountdown" data-date="<?php echo $evenement->getDateDb(); ?> "
+                <div id="DateCountdown" data-date="<?php echo $evenement->getDateFn(); ?> "
                      style="width: 500px; height: 125px; padding: 0px; box-sizing: border-box; background-color: #C34C39"></div>
 
 
@@ -160,10 +211,15 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     </div>
 </section><!--/#about-->
 
-
-<section id="sponsor">
-    <?php include 'include/sponsor.php' ?>
-</section><!--/#sponsor-->
+<?php
+if ($spon != 0) {
+    ?>
+    <section id="sponsor">
+        <?php include 'include/sponsor.php' ?>
+    </section><!--/#sponsor-->
+    <?php
+}
+?>
 
 <section id="contact">
 
@@ -176,15 +232,22 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
 </section>
 <!--/#contact-->
 
-<?php include 'include/footer.php' ?>
+<footer id="footer">
+    <div class="container">
+        <div class="text-center">
+            <p> Copyright &copy;<?php echo date("Y"); ?><a href="."> Calentiel </a> All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
 <!--/#footer-->
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="js/smoothscroll.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="js/jquery.nav.js"></script>
+
 <script type="text/javascript" src="js/main.js"></script>
 
 <script type="text/javascript" src="js/TimeCircles.js"></script>
