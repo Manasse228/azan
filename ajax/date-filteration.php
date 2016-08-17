@@ -49,7 +49,7 @@ if ((!empty($_POST['startDate']) && (!empty($_POST['endDate'])))) {    // Check 
 				<div class="row">
 				<div class="col-sm-4">
 				<a class="pull-left" href="event/index.php?azan=' . $value["id"] . ' " target="_blank">
-				<img class="media-object"  alt="64x64" style="height: 80px;" src="images/' . strtolower($photoData['lien']) . '">
+				<img class="media-object img-rounded"   alt="74x74" style="height: 80px;" src="images/' . strtolower($photoData['lien']) . '">
 					</a><div class="media-body">
 					<p id="cname"><strong>' . $value['nomeve'] . '</strong></p>
 					<p><strong>Lieu: </strong> ' . $value['lieueve'] . '</p>
@@ -60,13 +60,12 @@ if ((!empty($_POST['startDate']) && (!empty($_POST['endDate'])))) {    // Check 
 					 <div class="col-sm-4"> <p class="">
 
                    <p> <strong>Description: </strong> <br />'.$value['description'].' </p>
-                   <p> <strong>Description: </strong> <br />'.$value['description'].' </p>
 
                     </p></div>
 
 					<div class="col-sm-4"><p class="pull-right">
-					 <p > <strong>Date début: </strong>' . date_format(date_create($value['datedbeve']), "d-m-Y") .
-                    ' <strong>à</strong> ' . date_format(date_create($value['datedbeve']), "H:i") . ' </p>
+					 <p><span class="label label-success"> <strong>Date début: </strong>' . date_format(date_create($value['datedbeve']), "d-m-Y") .
+                    ' <strong>à</strong> ' . date_format(date_create($value['datedbeve']), "H:i") . ' </span> </p>
                      <p> hop </p> </p>   </div>
 					</div></div>   ' . '<hr>';
 
