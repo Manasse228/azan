@@ -21,7 +21,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
     $evenementManager = new  EvenementManager($pdo);
     if($evenementManager->checkNomLieu($evenement->getNom(), $evenement->getLieu()) == false){
         $msg = new FlashMessages();
-        $msg->error("<b>".$evenement->getNom()."</b> est déjà utilisé pour un autre évènement à <b>".$evenement->getLieu()."</b>");
+        $msg->error("<b>".$evenement->getNom()."</b> est déjà utilisé comme nom d' évènement à <b>".$evenement->getLieu()."</b>");
     }else{
         Utilities::POST_redirect('nvoevesuite.php');
     }
@@ -214,6 +214,18 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
 
 <script>
     $(document).ready(function() {
+
+        $('input[name="nomEve"], input[name="lieuEve"]').on('input', function(){
+            $('#formPub').formValidation('revalidateField', 'nomEve');
+            $('#formPub').formValidation('revalidateField', 'lieuEve');
+        });
+
+        $('input[name="nomEve"], input[name="lieuEve"]').on('focus', function(){
+            $('#formPub').formValidation('revalidateField', 'nomEve');
+            $('#formPub').formValidation('revalidateField', 'lieuEve');
+        });
+
+
 var choix;
         $('#dateML')
             .datepicker({
@@ -226,7 +238,7 @@ var choix;
                 // Revalidate the date field
                 //choix = document.getElementById('inputdateML').value;
                 //console.log("date "+choix);
-            $('#form').formValidation('revalidateField', 'dateMiseEnLigneEve');
+            $('#formPub').formValidation('revalidateField', 'dateMiseEnLigneEve');
             $('#dateDb').data("DateTimePicker").minDate(e.date);
             $('#dateFin').data("DateTimePicker").minDate(e.date);
             });
@@ -238,7 +250,7 @@ var choix;
 
         }).on('dp.change dp.show', function(e) {
             $('#dateFin').data("DateTimePicker").minDate(e.date);
-            $('#form').formValidation('revalidateField', 'datedebutEve');
+            $('#formPub').formValidation('revalidateField', 'datedebutEve');
         });
 
 
@@ -246,7 +258,7 @@ var choix;
             .datetimepicker({
             format: 'DD-MM-YYYY HH:mm'
         }).on('dp.change dp.show', function(e) {
-            $('#form').formValidation('revalidateField', 'datefinEve');
+            $('#formPub').formValidation('revalidateField', 'datefinEve');
         });
 
 

@@ -59,9 +59,14 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
 
 
 <div class="row" style="margin-top: 80px">
+    <?php
 
+    $msg = new FlashMessages();
+    $msg->display();
+    ?>
 
     <div class="row">
+
         <div class="col-md-6 col-md-offset-3">
             <h1 class="page-header text-center">
                 Souscrivez aux types d'évènements que vous désirez et nous s'occuperons du reste en vous mettant au courant</h1>

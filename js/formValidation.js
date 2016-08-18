@@ -120,6 +120,127 @@ $(document).ready(function () {
     });
 
 
+    $('#updateFormPub').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            nomEve: {
+                validators: {
+                    notEmpty: {
+                        message: "Nom de l'évènement requis"
+                    },
+                    stringLength: {
+                        max: 80,
+                        message: 'Le nom doit avoir au maximum 75 caracteres'
+                    },
+                    remote: {
+                        message: "Ce nom d' évènement est déjà utilisé pour ce même lieuuuu",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                uptLieuEve: $('input[name="lieuEve"]').val(),
+                                uptNomEve: $('input[name="nomEve"]').val(),
+                                oldLieu: beforeLieuEve,
+                                oldName: beforeNomEve,
+                            };
+                        },
+                        type: 'POST',
+                    },
+                }
+            },
+            lieuEve: {
+                validators: {
+                    notEmpty: {
+                        message: "Lieu d'évènement requis"
+                    },
+
+                }
+            },
+            prixEve: {
+                validators: {
+                    notEmpty: {
+                        message: "Renseigner le prix"
+                    },
+                    numeric: {
+                        message: 'Renseigner le prix en chiffre',
+                        // The default separators
+                        thousandsSeparator: '',
+                        decimalSeparator: ','
+                    }
+                }
+            },
+            dateMiseEnLigneEve: {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: 'Renseigner la date de la mise en ligne'
+                    },
+                    date: {
+                        format: 'DD-MM-YYYY',
+                        message: 'Date invalide'
+                    }
+                }
+            },
+            datedebutEve: {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: 'Renseigner la date de début'
+                    },
+                    date: {
+                        format: 'DD-MM-YYYY h:m',
+                        message: 'Date invalide'
+                    }
+                }
+            },
+            datefinEve: {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: 'Renseigner la date de fin'
+                    },
+                    date: {
+                        format: 'DD-MM-YYYY h:m',
+                        message: 'Date invalide'
+                    }
+                }
+            },
+            contactEve: {
+                validators: {
+                    notEmpty: {
+                        message: "Renseigner un contact par exemple un numero de telephone"
+                    }
+                }
+            },
+            descriptionEve: {
+                validators: {
+                    notEmpty: {
+                        message: "Décrivez nous au moins votre évènement"
+                    },
+                    stringLength: {
+                        min: 50,
+                        message: 'La description doit comporter au moins 50 caractères'
+                    }
+                }
+            },
+            type: {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: "Selectionner un type d'événement"
+                    }
+                }
+            },
+
+
+        }
+    });
+
+
     $('#inscription_form').formValidation({
         framework: 'bootstrap',
         icon: {

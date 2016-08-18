@@ -164,16 +164,13 @@ $msg->display();
 
                 <div class="modal-body">
 
-                    <form class="form-horizontal" id="formPub" method="post" role="form" autocomplete="off"
+                    <form class="form-horizontal" id="updateFormPub" method="post" role="form" autocomplete="off"
                           action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>">
                         <fieldset>
 
                             <?php
-
-                            $pdo->beginTransaction();
                             $req = $pdo->prepare("select * from typeevenement ");
                             $req->execute();
-                            $pdo->commit();
                             $result = $req->fetchAll(PDO::FETCH_ASSOC);
                             ?>
 
@@ -343,6 +340,15 @@ $msg->display();
 
         $(document).ready(function () {
 
+            $('input[name="nomEve"], input[name="lieuEve"]').on('input', function(){
+                $('#updateFormPub').formValidation('revalidateField', 'nomEve');
+                $('#updateFormPub').formValidation('revalidateField', 'lieuEve');
+            });
+
+            $('input[name="nomEve"], input[name="lieuEve"]').on('focus', function(){
+                $('#updateFormPub').formValidation('revalidateField', 'nomEve');
+                $('#updateFormPub').formValidation('revalidateField', 'lieuEve');
+            });
 
             $('#dateML').datetimepicker({
                 format: 'DD-MM-YYYY',
@@ -350,7 +356,7 @@ $msg->display();
             }).on('dp.change dp.show', function (e) {
                 $('#dateDb').data("DateTimePicker").minDate(e.date);
                 $('#dateFin').data("DateTimePicker").minDate(e.date);
-                $('#form').formValidation('revalidateField', 'dateMiseEnLigneEve');
+                $('#updateFormPub').formValidation('revalidateField', 'dateMiseEnLigneEve');
             });
 
 
@@ -358,7 +364,7 @@ $msg->display();
                 format: 'DD-MM-YYYY HH:mm',
             }).on('dp.change dp.show', function (e) {
                 $('#dateFin').data("DateTimePicker").minDate(e.date);
-                $('#form').formValidation('revalidateField', 'datedebutEve');
+                $('#updateFormPub').formValidation('revalidateField', 'datedebutEve');
             });
 
 
@@ -366,13 +372,13 @@ $msg->display();
                 .datetimepicker({
                     format: 'DD-MM-YYYY HH:mm'
                 }).on('dp.change dp.show', function (e) {
-                $('#form').formValidation('revalidateField', 'datefinEve');
+                $('#updateFormPub').formValidation('revalidateField', 'datefinEve');
             });
 
 
             $('#updateEve').on('show.bs.modal', function (e) {
                 var rowid = $(e.relatedTarget).data('id');
-                console.log("Resultat " + rowid);
+                //console.log("Resultat " + rowid);
                 $.ajax({
                     type: 'post',
                     datatype: 'JSON',
@@ -380,8 +386,8 @@ $msg->display();
                     data: 'rowid=' + rowid, //Pass $id
                     success: function (data) {
                         var obj = JSON.parse(data);
-                        // console.log(obj.Evenement[0].lieueve + " " + obj.Evenement[0].datedbeve);
-                        //console.log(obj.Evenement[0].description);
+                        beforeNomEve = obj.Evenement[0].nomeve;
+                        beforeLieuEve = obj.Evenement[0].lieueve;
                         var parts = obj.Evenement[0].datepubeve.split('-');
 
 
@@ -462,6 +468,7 @@ $msg->display();
             part2 = part2.split(':');
             return part1[2] + '-' + part1[1] + '-' + part1[0] + ' ' + part2[0] + ':' + part2[1];
         }
+
 
     </script>
 

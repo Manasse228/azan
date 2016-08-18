@@ -1,5 +1,11 @@
 <?php
 include_once 'mvc/controleur/autoload.php';
+session_start();
+
+$pdo = Connection::getConnexion();
+$req = $pdo->prepare("select * from typeevenement ");
+$req->execute();
+$result = $req->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +41,22 @@ include_once 'mvc/controleur/autoload.php';
 <?php include 'include/navbar.php' ?>
 
 
+
+
+
 <!-- Wrap all page content here -->
 <div id="wrap">
 
-    <?php
-    $pdo = Connection::getConnexion();
-    $pdo->beginTransaction();
-    $req = $pdo->prepare("select * from typeevenement ");
-    $req->execute();
-    $pdo->commit();
-    $result = $req->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-
     <div class="container">
+
+        <?php
+
+        $msg = new FlashMessages();
+
+        echo "";
+        $msg->display();
+        ?>
+
         <div class="row">
             <h3 class="text-center">Recherche d'évènement</h3>
             <div class="col-lg-4 col-md-4 col-sm-12">

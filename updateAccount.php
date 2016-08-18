@@ -50,7 +50,13 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['update'] == 'submit')
 <?php include 'include/navbar.php' ?>
 
 
+
     <fieldset class="fieldset">
+        <?php
+
+        $msg = new FlashMessages();
+        $msg->display();
+        ?>
         <legend id="text">Mise à jour</legend>
 
         <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>"

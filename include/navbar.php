@@ -1,6 +1,7 @@
 <?php
 include_once 'mvc/controleur/autoload.php';
 
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -34,10 +35,9 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
               echo "Sa passe";
           } */
 
-    } else {
+    }else {
         $msg = new FlashMessages();
         $msg->error('Login ou mot de passe erroné ! ');
-        $msg->display();
     }
 
 }
