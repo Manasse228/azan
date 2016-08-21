@@ -21,7 +21,14 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
     $pdo = Connection::getConnexion();
     $userManager = new UserManager($pdo);
     if ($client = $userManager->checkLogin($_POST['login'], $_POST['password'])) {
-        $_SESSION['User'] = $client;
+
+        if($client->getActive() == 0){
+            $msg = new FlashMessages();
+            $msg->error("Activez dès a présent votre compte -> <a  href='http://calentiel.info/azancalentiel/active.php?pcaisas=".$client->getCodeActivation()."'> Activer mon compte  </a> ");
+        }else{
+            $_SESSION['User'] = $client;
+        }
+
 
         /*  if (isset($_POST['autoconnect']) && ($_POST['autoconnect'] == 'yes') ) {
 
@@ -57,7 +64,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=".">Calentiel</a>
+            <a class="navbar-brand" href="AboutUs.php">Calentiel</a>
         </div>
 
 
@@ -71,8 +78,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                     <a href="#" data-toggle="dropdown">Compte <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="updateAccount.php">Modifier profil</a></li>
-                        <li><a href="" data-toggle="modal"
-                               data-target="#modificationPassword">Modifier mot de passe</a></li>
+                        <li><a href="updtPassEmail.php" >Mot de passe / Email</a></li>
                         <li><a style="text-decoration-color: red" href="abonnement.php">Abonnement</a></li>
                     </ul>
                 </li>
@@ -98,7 +104,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
 
                 <li><a href="contact.php">Contact</a></li>
 
-                <li><a style="text-decoration-color: red" href="#">Newsletters</a></li>
+                <li><a style="text-decoration-color: red" href="newsletters.php">Newsletters</a></li>
 
 
             </ul>
@@ -203,55 +209,6 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
 </form>
 
 <!-- Modification mot de passe oublié-->
-<form id="modification_password" method="post" class="form-horizontal">
-    <div class="modal fade" id="modificationPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Modification de mot de passe</h4>
-                </div>
 
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <input autocomplete="off" class="form-control"
-                                       name="oldPassword" placeholder="Mot de passe actuel"
-                                       type="password"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <input autocomplete="off" class="form-control"
-                                       name="newPassword" placeholder="Nouveau mot de passe"
-                                       type="password"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <input autocomplete="off" class="form-control"
-                                       name="newPassword2" placeholder="Nouveau mot de passe (Verification)"
-                                       type="password"/>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Récupérer</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
 
 

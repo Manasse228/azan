@@ -74,10 +74,8 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
 
         <?php
         $pdo = Connection::getConnexion();
-        $pdo->beginTransaction();
         $req = $pdo->prepare("select * from typeevenement ");
         $req->execute();
-        $pdo->commit();
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
@@ -85,7 +83,7 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
 
         <!-- Type evenement -->
         <div class="form-group ">
-            <label class="col-md-4 control-label" >Type événement</label>
+            <label class="col-md-4 control-label" >Type évènement</label>
             <div class="col-md-2">
                 <select name="type" class="form-control">
                     <option value="">-- Selectionner --</option>

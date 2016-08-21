@@ -30,19 +30,26 @@ if (isset($_POST['rowid'])) {
 
     } else {
 
-        if (isset($_POST["nomEve"], $_POST["lieuEve"])) {
-            $result = $evenementManager->checkNomLieu($_POST["nomEve"], $_POST["lieuEve"]);
-        } else {
-            if (isset($_POST["uptLieuEve"], $_POST["uptNomEve"], $_POST["oldLieu"], $_POST["oldName"])) {
-
-                $result = $evenementManager->checkNomLieuForUpdate($_POST["uptNomEve"], $_POST["uptLieuEve"], $_POST["oldLieu"], $_POST["oldName"]);
-
-            } else {
-
                 switch ($_POST['type']) {
+
+                    case 'checkNomLieu':
+                        $result = $evenementManager->checkNomLieu($_POST["nomEve"], $_POST["lieuEve"]);
+                        break;
+
+                    case 'checkEmailBeforeUpdate':
+                        $result = $userManager->checkEmailBeforeUpdate($_POST["newemail"], "email" ,$_POST["firstEmail"]);
+                        break;
+
+                    case 'checkNomLieuForUpdate':
+                        $result = $evenementManager->checkNomLieuForUpdate($_POST["uptNomEve"], $_POST["uptLieuEve"], $_POST["oldLieu"], $_POST["oldName"]);
+                        break;
 
                     case 'pseudo':
                         $result = $userManager->exists($_POST["pseudo"], "pseudouser");
+                        break;
+
+                    case 'uptPseudo':
+                        $result = $userManager->checkColomunBeforeUpdate($_POST["pseudo"], "pseudouser", $_POST['oldPseudo']);
                         break;
 
                     case 'email':
@@ -60,8 +67,8 @@ if (isset($_POST['rowid'])) {
                     default:
                         break;
                 }
-            }
-        }
+
+
     }
 
 

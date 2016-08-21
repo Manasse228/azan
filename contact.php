@@ -31,7 +31,13 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
     include_once 'mvc/controleur/autoload.php';
     $mail = $_POST['email']; // Déclaration de l'adresse de destination.
 
-    Utilities::sendEmail($_POST['email'], "Demande d'information", $_POST['message']);
+    Utilities::sendEmail($_POST['email'], "Calentiel Equipe technique",
+        "Votre demande (<br/> <b>". $_POST['message'] ."</b> <br />) est bien prise en compte Merci!",
+        "Demande d'information", "contact@calentiel.info");
+
+    Utilities::sendEmail("contact@calentiel.info", "Demande Urgente",
+         $_POST['message']. "<br /> venant de : ".$_POST['email'],
+        "Demande Urgente", "contact@calentiel.info");
 
     $msg = new FlashMessages();
     $msg->success('Votre message a été envoyé avec succès; notre épuique technique vous répondra dans de plus bref délai. Merci!');

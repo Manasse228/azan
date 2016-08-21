@@ -24,7 +24,8 @@ $(document).ready(function () {
                         data: function (validator) {
                             return {
                                 lieuEve: $('input[name="lieuEve"]').val(),
-                                nomEve: $('input[name="nomEve"]').val()
+                                nomEve: $('input[name="nomEve"]').val(),
+                                type: 'checkNomLieu',
                             };
                         },
                         type: 'POST',
@@ -146,6 +147,7 @@ $(document).ready(function () {
                                 uptNomEve: $('input[name="nomEve"]').val(),
                                 oldLieu: beforeLieuEve,
                                 oldName: beforeNomEve,
+                                type: 'checkNomLieuForUpdate',
                             };
                         },
                         type: 'POST',
@@ -240,6 +242,141 @@ $(document).ready(function () {
         }
     });
 
+    $('#modification_email').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            oldEmail: {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'Adresse email requise'
+                    },
+                    emailAddress: {
+                        message: 'Adresse email invalide'
+                    },
+                    stringLength: {
+                        max: 255,
+                        message: "L' adresse email ne peux pas dépasser 255 characters"
+                    },
+                    remote: {
+                        type: 'GET',
+                        url: 'https://api.mailgun.net/v2/address/validate?callback=?',
+                        crossDomain: true,
+                        name: 'address',
+                        data: {
+                            api_key: 'pubkey-36df9b06989807c71f588b584a92950a'
+                        },
+                        dataType: 'jsonp',
+                        validKey: 'is_valid',
+                        message: 'Adresse email incorrecte'
+                    },
+                    remote: {
+                        message: "Cette adresse email ne correspond pas à votre email actuel",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                newemail: $('input[name="oldEmail"]').val(),
+                                firstEmail: useremail,
+                                type: 'checkEmailBeforeUpdate',
+                            };
+                        },
+                        type: 'POST',
+                    },
+                }
+            },
+            mewemail: {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'Adresse email requise'
+                    },
+                    emailAddress: {
+                        message: 'Adresse email invalide'
+                    },
+                    stringLength: {
+                        max: 255,
+                        message: "L' adresse email ne peux pas avoir 255 characters"
+                    },
+                    remote: {
+                        type: 'GET',
+                        url: 'https://api.mailgun.net/v2/address/validate?callback=?',
+                        crossDomain: true,
+                        name: 'address',
+                        data: {
+                            api_key: 'pubkey-36df9b06989807c71f588b584a92950a'
+                        },
+                        dataType: 'jsonp',
+                        validKey: 'is_valid',
+                        message: 'Adresse email incorrecte'
+                    },
+                    remote: {
+                        message: "Cette adresse email est déjà utilisée",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                email: $('input[name="mewemail"]').val(),
+                                type: 'email',
+                            };
+                        },
+                        type: 'POST',
+                    },
+                }
+            },
+            mewemail2: {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'Adresse email requise'
+                    },
+                    emailAddress: {
+                        message: 'Adresse email invalide'
+                    },
+                    stringLength: {
+                        max: 255,
+                        message: "L' adresse email ne peux pas avoir 255 characters"
+                    },
+                    remote: {
+                        type: 'GET',
+                        url: 'https://api.mailgun.net/v2/address/validate?callback=?',
+                        crossDomain: true,
+                        name: 'address',
+                        data: {
+                            api_key: 'pubkey-36df9b06989807c71f588b584a92950a'
+                        },
+                        dataType: 'jsonp',
+                        validKey: 'is_valid',
+                        message: 'Adresse email incorrecte'
+                    },
+                    remote: {
+                        message: "Cette adresse email est déjà utilisée",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                email: $('input[name="mewemail2"]').val(),
+                                type: 'email',
+                            };
+                        },
+                        type: 'POST',
+                    },
+                    identical: {
+                        field: 'mewemail',
+                        message: 'Les deux adresses email doivent être identiques'
+                    }
+
+                }
+            },
+
+
+
+
+        }
+    });
+
 
     $('#inscription_form').formValidation({
         framework: 'bootstrap',
@@ -279,8 +416,8 @@ $(document).ready(function () {
                         message: 'Adresse email invalide'
                     },
                     stringLength: {
-                        max: 512,
-                        message: "L' adresse email ne peux pas avoir 512 characters"
+                        max: 255,
+                        message: "L' adresse email ne peux pas avoir 255 characters"
                     },
                     remote: {
                         type: 'GET',
@@ -347,7 +484,7 @@ $(document).ready(function () {
                             }
 
                             // We will treat the password as an invalid one if the score is less than 3
-                            if (score < 3) {
+                            if (score < 2) {
                                 return {
                                     valid: false,
                                     message: message
@@ -401,7 +538,7 @@ $(document).ready(function () {
                             }
 
                             // We will treat the password as an invalid one if the score is less than 3
-                            if (score < 3) {
+                            if (score < 2) {
                                 return {
                                     valid: false,
                                     message: message
@@ -421,7 +558,8 @@ $(document).ready(function () {
         }
     });
 
-    $('#update_form').formValidation({
+
+    $('#newsletters_form').formValidation({
         framework: 'bootstrap',
         icon: {
             valid: 'glyphicon glyphicon-ok',
@@ -445,9 +583,88 @@ $(document).ready(function () {
                             type: 'pseudo'
                         },
                         type: 'POST'
+                    },
+                }
+            },
+            "type[]": {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: "Selectionner un type d'événement"
                     }
                 }
-            }
+            },
+            email: {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'Adresse email requise'
+                    },
+                    emailAddress: {
+                        message: 'Adresse email invalide'
+                    },
+                    stringLength: {
+                        max: 255,
+                        message: "L' adresse email ne peux pas avoir 255 characters"
+                    },
+                    remote: {
+                        type: 'GET',
+                        url: 'https://api.mailgun.net/v2/address/validate?callback=?',
+                        crossDomain: true,
+                        name: 'address',
+                        data: {
+                            api_key: 'pubkey-36df9b06989807c71f588b584a92950a'
+                        },
+                        dataType: 'jsonp',
+                        validKey: 'is_valid',
+                        message: 'Adresse email incorrecte'
+                    },
+                    remote: {
+                        message: 'Cette adresse email est déjà utilisée',
+                        url: 'ajax/verif.php',
+                        data: {
+                            type: 'email'
+                        },
+                        type: 'POST'
+                    }
+                }
+            },
+        }
+    });
+
+
+    $('#update_form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            pseudo: {
+                validators: {
+                    notEmpty: {
+                        message: "Le pseudo est obligatoire"
+                    },
+                    stringLength: {
+                        max: 80,
+                        message: 'Le pseudo doit avoir au maximum 80 caracteres'
+                    },
+                    remote: {
+                        message: "Ce pseudo est déja utilisé",
+                        url: 'ajax/verif.php',
+                        data: function (validator) {
+                            return {
+                                pseudo: $('input[name="pseudo"]').val(),
+                                oldPseudo: beforePseudo,
+                                type: 'uptPseudo',
+                            };
+                        },
+                        type: 'POST',
+                    },
+                }
+            },
+
         }
     });
 
@@ -468,8 +685,8 @@ $(document).ready(function () {
                         message: 'Adresse email invalide'
                     },
                     stringLength: {
-                        max: 512,
-                        message: "L' adresse email ne peux pas avoir 512 characters"
+                        max: 255,
+                        message: "L' adresse email ne peux pas avoir 255 characters"
                     },
                     remote: {
                         type: 'GET',

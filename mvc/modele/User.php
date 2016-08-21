@@ -47,13 +47,13 @@ class User
                 $this->password = func_get_arg(1);
                 break;
 
-            case 7:
+            case 6:
                 $this->pseudo = func_get_arg(0);
                 $this->telephone = func_get_arg(1);
                 $this->sexe = func_get_arg(2);
-                $this->prenom = func_get_arg(4);
-                $this->nom = func_get_arg(5);
-                $this->id = func_get_arg(6);
+                $this->prenom = func_get_arg(3);
+                $this->nom = func_get_arg(4);
+                $this->id = func_get_arg(5);
                 break;
 
             case 10:
@@ -68,6 +68,7 @@ class User
                 $this->telephone = func_get_arg(8);
                 $this->email = func_get_arg(9);
                 break;
+
 
             default:
         }

@@ -52,18 +52,15 @@ class Utilities
         return $code_aleatoire;
     }
 
-    public static function sendEmail($destinataire, $sujet, $message){
 
-        $to  = $destinataire. ', ';
-        $to .= 'contact@calentiel.info';
+    public static function sendEmail($destinataire, $nameMail, $message, $subject, $emailTechnique){
+
+        $headers = 'From: ' . $nameMail . '<'.$emailTechnique.'>' . "\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
 
-        $subject = $sujet;
-
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-        mail($to, $subject, utf8_encode($message), $headers);
+        mail($destinataire, $subject, $message, $headers);
 
     }
 
