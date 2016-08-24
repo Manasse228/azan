@@ -9,7 +9,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Recherche d évènement</title>
@@ -30,6 +30,30 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
             right: 24px;
             top: auto;
             cursor: pointer;
+        }
+
+         .day {
+            display: block;
+            font-size: 56pt;
+            font-weight: 100;
+            line-height: 1;
+        }
+
+        .month {
+            display: block;
+            font-size: 24pt;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .time{
+            display: inline-block;
+            width: 100%;
+            color: rgb(255, 255, 255);
+            background-color: rgb(197, 44, 102);
+            padding: 5px;
+            text-align: center;
+            text-transform: uppercase;
         }
 
     </style>
@@ -57,9 +81,10 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
         $msg->display();
         ?>
 
-        <div class="row">
+        <div class="form-group">
             <h3 class="text-center">Recherche d'évènement</h3>
-            <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="col-lg-4 col-md-4 col-xs-12">
 
                 <select name="type" class="form-control" id="selectType">
                     <option value="">---- Type événement ----</option>
@@ -73,12 +98,10 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
             </div>
 
 
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <div class="col-md-4 col-md-offset-4 demo">
+            <div class="col-lg-8 col-md-8 col-xs-12 demo">
+
                     <input type="text" id="config-demo" class="form-control">
                     <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-
-                </div>
 
             </div>
 

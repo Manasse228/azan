@@ -38,7 +38,7 @@ foreach ($evenement as $db_event) {
 	$event->color = $i;
 	$event->location = $db_event->getLieu(); // Adapt with your suitable db field. If your db has not this field, please let it be : $event->location = "";
 	$event->prix = ($db_event->getPrix() == 0) ? " Entrée gratuite" : " ".$db_event->getPrix();
-	$event->description = substr($db_event->getDesription(), 0, 20)."... <a target='_blank' href=http://localhost/azan//event/index.php?azan=".$db_event->getId()."> Plus de Détail </a>"; // Adapt with your suitable db field. If your db has not this field, please let it be : $event->description = "";
+	$event->description = $db_event->getDesription()."... <a target='_blank' href=http://localhost/azan//event/index.php?azan=".$db_event->getId()."> Plus de Détail </a>"; // Adapt with your suitable db field. If your db has not this field, please let it be : $event->description = "";
 	array_push($events, $event);
 
 }

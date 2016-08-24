@@ -43,13 +43,21 @@ if ((!empty($_POST['startDate']) && (!empty($_POST['endDate'])))) {    // Check 
             $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($data as $photoData) {
-                //echo $photoData["lien"];
 
                 $str .= '<div class="well">
 				<div class="row">
+				<div class="col-sm-2">
+
+                    <time class="time">
+                        <span class="day">'. date_format(date_create($value['datedbeve']), "d").'</span>
+                        <span class="month">'.date_format(date_create($value['datedbeve']), "M").'</span>
+                    </time>
+
+				</div>
+
 				<div class="col-sm-4">
 				<a class="pull-left" href="event/index.php?azan=' . $value["id"] . ' " target="_blank">
-				<img class="media-object img-rounded"   alt="74x74" style="height: 80px;" src="images/' . strtolower($photoData['lien']) . '">
+				<img class="media-object img-rounded"   alt="Calentiel" style="height: 120px;" src="images/' . strtolower($photoData['lien']) . '">
 					</a><div class="media-body">
 					<p id="cname"> <span class="label label-danger" style="font-size: 20px"> <strong >' . $value['nomeve'] . ' </span> </strong></p>
 					<p><strong>Lieu: </strong> ' . $value['lieueve'] . '</p>
@@ -57,11 +65,11 @@ if ((!empty($_POST['startDate']) && (!empty($_POST['endDate'])))) {    // Check 
 
 					</div></div>
 
-					 <div class="col-sm-4"> <p class="">
+					 <div class="col-sm-2">
 
-                   <p> <strong>Description: </strong> <br />'.$value['description'].' </p>
+                    <strong>Description: </strong> <br /> <p>'.$value['description'].' </p>
 
-                    </p></div>
+                    </div>
 
 					<div class="col-sm-4"><p class="pull-right" style="font-size: 20px" >
 					 <span class="label label-success"> <strong>Date début: </strong>' . date_format(date_create($value['datedbeve']), "d-m-Y") .

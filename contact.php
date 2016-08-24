@@ -91,11 +91,14 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <button name="submitContact" value="Envoyer" class="btn btn-primary" type="submit">Envoyer</button>
-                        <button type="reset" class="btn btn-default" id="resetButton">Annuler</button>
+                        <button name="submitContact" value="Envoyer" class="btn btn-lg btn-primary " type="submit">
+                            <span class="glyphicon glyphicon-bell"></span> Envoyer
+                        </button>
+                        <button type="reset" class="btn btn-lg btn-primary btn-danger" id="resetButton">
+                            <span class="glyphicon glyphicon-remove"></span> Annuler
+                        </button>
                     </div>
                 </div>
-
 
             </form>
         </div>

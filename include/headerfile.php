@@ -1,4 +1,6 @@
 
+<meta name="viewport" content="width=device-width" />
+
 <link rel="shortcut icon" type="image/x-icon"  href="images/res/calentiel.ico" />
 
 
@@ -30,6 +32,8 @@
 <script type="text/javascript" src="js/formValidation.min.js"></script>
 <script type="text/javascript" src="js/formvalidationbootstrap.min.js"></script>
 <script type="text/javascript" src="js/formValidation.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 
 
 

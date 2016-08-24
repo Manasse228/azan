@@ -195,7 +195,6 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['nomEve'])) && (isse
             <label class="col-md-4 control-label" ></label>
             <div class="col-md-8">
 
-
                 <button
                     type="submit" class="btn btn-success btn-lg btn3d" name="firtsPart" value="continuer">
                     <span class="glyphicon glyphicon-ok"></span> Valider & Continuer</button>

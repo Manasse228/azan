@@ -62,7 +62,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['mas'] == 'miseajour')
           autocomplete="off" method="post" id="update_form" class="form-horizontal">
 
 
-        <div class="row">
+
             <div class="form-group">
                 <div class="col-xs-12 col-md-6 col-lg-6">
                     <input autocomplete="off" value="<?php if (isset($_SESSION['User'])) {
@@ -80,9 +80,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['mas'] == 'miseajour')
                     <span class="help-block">Votre Prénom</span>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
+
             <div class="form-group">
                 <div class="col-xs-12 col-md-8 col-lg-8">
                     <input required autocomplete="off"
@@ -104,10 +103,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['mas'] == 'miseajour')
                     </label>
                 </div>
             </div>
-        </div>
 
 
-        <div class="row">
             <div class="form-group">
                 <div class="col-xs-12 col-md-6 col-lg-6">
                     <input type="tel" autocomplete="off"
@@ -126,20 +123,21 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['mas'] == 'miseajour')
                     <span class="help-block">Votre adresse email</span>
                 </div>
             </div>
-        </div>
 
 
-        <div class="row ">
-            <div class="col-xs-12 col-md-8 col-lg-8">
-                <button name="mas" value="miseajour" class="btn btn-lg btn-primary btn-block " type="submit">
-                    <span class="glyphicon glyphicon-floppy-save"></span> Modfication
+        <div class="form-group ">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <button name="mas" value="miseajour" class="btn btn-lg btn-primary " type="submit">
+                    <span class="glyphicon glyphicon-pencil"></span> Modification
+                </button>
+
+                <button type="reset" class="btn btn-lg btn-primary btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span> Annuler
                 </button>
             </div>
-            <div class="col-xs-12 col-md-4 col-lg-4">
-                <button type="reset" class="btn btn-lg btn-primary btn-block btn-danger">Annuler</button>
-            </div>
-        </div>
 
+
+        </div>
 
     </form>
 
