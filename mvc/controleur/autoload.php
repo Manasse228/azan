@@ -1,6 +1,6 @@
 <?php
 // format du dossier '/nomdusite'
-define("DIRECTORY_NAME", "/azan");
+define("DIRECTORY_NAME", "/");
 
 spl_autoload_register('autoload');
 function autoload( $class ){

@@ -22,7 +22,7 @@ class PhotosManager
             global $pdo;
 
             // $pdo->beginTransaction();
-            $req = $pdo->prepare("INSERT INTO photos(ideve, typephoto, lien) VALUES (:evenement, :typephoto, :lien)");
+            $req = $pdo->prepare("INSERT INTO photo(id_eve, type_photo, lien) VALUES (:evenement, :typephoto, :lien)");
 
             $req->bindValue(':evenement', $photos->getEvenement(), PDO::PARAM_INT);
             $req->bindValue(':typephoto', $photos->getTypePhoto(), PDO::PARAM_INT);
@@ -49,7 +49,7 @@ class PhotosManager
             global $pdo;
 
             $pdo->beginTransaction();
-            $req = $pdo->prepare("UPDATE photos set lien :lien, sponsor = :sponsor, ideve= :evenement, WHERE id= :id ");
+            $req = $pdo->prepare("UPDATE photo set lien :lien, id_eve= :evenement, WHERE id= :id ");
 
             $req->bindValue(':lien', $photos->getLien(), PDO::PARAM_STR);
             $req->bindValue(':sponsor', $photos->getSponsor(), PDO::PARAM_STR);
@@ -77,7 +77,7 @@ class PhotosManager
             global $pdo;
 
             $pdo->beginTransaction();
-            $req = $pdo->prepare("DELETE FROM photos WHERE id= :id");
+            $req = $pdo->prepare("DELETE FROM photo WHERE id= :id");
 
             $req->bindValue(':id', $id, PDO::PARAM_INT);
 
@@ -98,25 +98,23 @@ class PhotosManager
     public function getPhotosById($value){
 
         global $pdo;
-        $req = $pdo->prepare("SELECT p.id, p.ideve, p.typephoto, p.lien  FROM  photos p, evenement e WHERE p.ideve = :val and p.ideve=e.id");
+        $req = $pdo->prepare("SELECT p.id, p.id_eve, p.type_photo, p.lien  FROM  photo p, evenement e WHERE p.id_eve = :val and p.id_eve=e.id");
         $req->bindValue(':val', trim($value), PDO::PARAM_STR);
         $req->execute();
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
         $tab = array();
         foreach ($data as $value) {
-            $tab[] = new Photos($value["id"], $value["ideve"], $value["typephoto"], $value["lien"]);
+            $tab[] = new Photos($value["id"], $value["id_eve"], $value["type_photo"], $value["lien"]);
         }
-//new Photos($data["id"], $data["ideve"], $data["typephoto"], $data["lien"]);
-
         return $tab;
     }
 
     public function getPhotoRepById($value){
 
         global $pdo;
-        $req = $pdo->prepare("SELECT p.id, p.ideve, p.typephoto, p.lien  FROM  photos p, evenement e, typephoto t
-       WHERE t.id=1 AND e.id = :val AND p.ideve=e.id AND t.id=p.typephoto");
+        $req = $pdo->prepare("SELECT p.id, p.idèeve, p.type_photo, p.lien  FROM  photo p, evenement e, type_photo t
+       WHERE t.id=1 AND e.id = :val AND p.id_eve=e.id AND t.id=p.type_photo");
         $req->bindValue(':val', trim($value), PDO::PARAM_INT);
         $req->execute();
         $data = $req->fetch(PDO::FETCH_ASSOC);

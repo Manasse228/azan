@@ -111,7 +111,15 @@ $(document).ready(function () {
                 icon: 'false',
                 validators: {
                     notEmpty: {
-                        message: "Selectionner un type d'événement"
+                        message: "Selectionnez un type d'événement"
+                    }
+                }
+            },
+            evenement: {
+                icon: 'false',
+                validators: {
+                    notEmpty: {
+                        message: "Selectionnez un événement"
                     }
                 }
             },
@@ -387,6 +395,7 @@ $(document).ready(function () {
         },
         fields: {
             pseudo: {
+                icon: 'false',
                 validators: {
                     notEmpty: {
                         message: "Le pseudo est obligatoire"
@@ -408,6 +417,7 @@ $(document).ready(function () {
             },
             email: {
                 verbose: false,
+                icon: 'false',
                 validators: {
                     notEmpty: {
                         message: 'Adresse email requise'
@@ -417,7 +427,7 @@ $(document).ready(function () {
                     },
                     stringLength: {
                         max: 255,
-                        message: "L' adresse email ne peux pas avoir 255 characters"
+                        message: "L' adresse email ne peux pas avoir plus de 255 characters"
                     },
                     remote: {
                         type: 'GET',
@@ -442,6 +452,7 @@ $(document).ready(function () {
                 }
             },
             password: {
+                icon: 'false',
                 validators: {
                     notEmpty: {
                         message: "Mot de passe obligatoire"
@@ -497,6 +508,7 @@ $(document).ready(function () {
                 }
             },
             password2: {
+                icon: 'false',
                 validators: {
                     notEmpty: {
                         message: "Mot de passe obligatoire"

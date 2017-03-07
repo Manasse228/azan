@@ -24,7 +24,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
 
         if($client->getActive() == 0){
             $msg = new FlashMessages();
-            $msg->error("Activez dès a présent votre compte -> <a  href='http://calentiel.info/azancalentiel/active.php?pcaisas=".$client->getCodeActivation()."'> Activer mon compte  </a> ");
+            $msg->error("Activez dès a présent votre compte -> <a  href='http://calentiel.info/active.php?pcaisas=".$client->getCodeActivation()."'> Activer mon compte  </a> ");
         }else{
             $_SESSION['User'] = $client;
         }
@@ -44,7 +44,7 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
 
     }else {
         $msg = new FlashMessages();
-        $msg->error('Login ou mot de passe erroné ! ');
+        $msg->error('Login ou Mot de passe erroné ! ');
     }
 
 }
@@ -110,14 +110,16 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
             </ul>
 
 
+
             <ul class="nav navbar-nav navbar-right">
 
+                <?php if (!isset($_SESSION['User'])){ ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                     <ul id="login-dp" class="dropdown-menu">
                         <li>
-                            <div class="row">
-                                <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-lg-12">
                                     <!--   Connexion via
                                       <div class="social-buttons">
                                      !-- <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
@@ -150,14 +152,17 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                                             </button>
                                         </div>
 
+                                        <?php $test =1; if($test == 2){ ?>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="autoconnect" value="yes"> Se souvenir de
                                                 moi
                                             </label>
                                         </div>
+                                        <?php } ?>
 
                                     </form>
+
                                 </div>
                                 <div class="bottom text-center">
                                     <a href="inscription.php"><b>Inscription</b></a>
@@ -166,11 +171,15 @@ if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login'], $_POST['p
                         </li>
                     </ul>
                 </li>
-
-                <li><a href="mvc/controleur/deconnexion.php"><span class="glyphicon glyphicon-log-out"></span>Deconnexion</a>
-                </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['User'])){ ?>
+                    <li><a style="color: #ebf4f8"><span class="glyphicon glyphicon-user"></span><?php echo "  ".$_SESSION['User']->getPseudo(); ?></a></li>
+                    <li><a href="mvc/controleur/deconnexion.php"><span class="glyphicon glyphicon-log-out"></span>Deconnexion</a></li>
+                <?php } ?>
+                <li></li>
 
             </ul>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

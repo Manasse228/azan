@@ -21,7 +21,7 @@ session_start();
 
     $pdo = Connection::getConnexion();
     $pdo->beginTransaction();
-    $req = $pdo->prepare("select * from typeevenement ");
+    $req = $pdo->prepare("select * from sous_type_evenement ");
     $req->execute();
     $pdo->commit();
     $result = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -31,8 +31,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset($_POST['email']))
-    && (isset($_POST['message'])) && ($_POST['submitContact'] == 'Envoyer')
+if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'],$_POST['email'],$_POST['message'])) && ($_POST['submitContact'] == 'Envoyer')
 ) {
 
     include_once 'mvc/controleur/autoload.php';
@@ -41,7 +40,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
     $to = trim($user->getEmail());
     $name = trim(stripslashes($_POST['name']));
     $email = trim(stripslashes($_POST['email']));
-    $message = "Nom Votre souscription a été bien pris encompte, vous serez mis au courant dès qu'un nouveau évènement est mis en ligne";
+    $message = $name." votre souscription est bien priss encompte, vous serez mis au courant dès qu'un nouveau évènement sera mis en ligne";
     $subject = "Souscription";
 
 
@@ -91,15 +90,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="col-sm-2 control-label">Numero</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="email" name="email"
-                               placeholder="example@domain.com">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email" class="col-sm-2 control-label">Numero</label>
+                    <label for="email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
                         <input type="email" class="form-control" id="email" name="email"
                                placeholder="example@domain.com">
@@ -117,8 +108,13 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['name'])) && (isset(
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
-                        <button name="submitContact" value="Envoyer" class="btn btn-primary" type="submit">Envoyer</button>
-                        <button type="reset" class="btn btn-default" id="resetButton">Annuler</button>
+                        <button name="submitContact" value="Envoyer" class="btn btn-lg btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-pencil"></span> Valider
+                        </button>
+
+                        <button type="reset" class="btn btn-lg btn-primary btn-danger" id="resetButton">
+                            <span class="glyphicon glyphicon-remove"></span> Annuler
+                        </button>
                     </div>
                 </div>
 

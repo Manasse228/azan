@@ -3,7 +3,7 @@ include_once 'mvc/controleur/autoload.php';
 session_start();
 
 $pdo = Connection::getConnexion();
-$req = $pdo->prepare("select * from typeevenement ");
+$req = $pdo->prepare("select * from type_evenement ");
 $req->execute();
 $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
@@ -16,12 +16,10 @@ error_reporting(E_ALL);
 if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['pseudo'], $_POST['email'], $_POST['type'])) && ($_POST['inscription'] == 'submit')) {
 
     $userManager = new UserManager($pdo);
-
-
     $userManager->createUserWithFollow(new User($_POST['pseudo'], $_POST['email']), $_POST['type']);
 
     $msg = new FlashMessages();
-    $msg->success("Abonnement effectuée avec succès; un message de confirmation vous a été envoyé à cette adresse email : " . $_POST['email'], 'index.php');
+    $msg->success("Abonnement effectué avec succès; un message de confirmation vous a été envoyé à cette adresse email : " . $_POST['email'], 'index.php');
 }
 
 ?>

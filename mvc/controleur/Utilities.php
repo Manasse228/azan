@@ -9,10 +9,10 @@ class Utilities
         die;
     }
 
-    public static function VerifierAdresseMail($adresse)
+    public static function VerifierAdresseMail($email)
     {
         //Adresse mail trop longue (254 octets max)
-        if (strlen($adresse) > 254) {
+        if (strlen($email) > 254) {
             return '0';
         }
 
@@ -29,7 +29,7 @@ class Utilities
 
         $syntaxe = "#^[[:alnum:][:punct:]]{1,64}@[[:alnum:]-.$nonASCII]{2,253}\.[[:alpha:].]{2,6}$#";
 
-        if (preg_match($syntaxe, $adresse)) {
+        if (preg_match($syntaxe, $email)) {
             //C'est bon
             return '1';
         } else {
@@ -62,6 +62,10 @@ class Utilities
 
         mail($destinataire, $subject, $message, $headers);
 
+    }
+
+    public static function same_field($field1, $field2){
+        return ($field1 == $field2)? true : false;
     }
 
 

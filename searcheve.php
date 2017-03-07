@@ -2,10 +2,12 @@
 include_once 'mvc/controleur/autoload.php';
 session_start();
 
-$pdo = Connection::getConnexion();
-$req = $pdo->prepare("select * from typeevenement ");
-$req->execute();
-$result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    $pdo = Connection::getConnexion();
+    $req = $pdo->prepare("select * from sous_type_evenement ");
+    $req->execute();
+    $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +86,8 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
         <div class="form-group">
             <h3 class="text-center">Recherche d'évènement</h3>
 
-            <div class="col-lg-4 col-md-4 col-xs-12">
-
-                <select name="type" class="form-control" id="selectType">
+            <div class="col-lg-4 col-md-4 col-xs-12 ">
+                <select name="type" class="form-control" >
                     <option value="">---- Type événement ----</option>
                     <?php
                     foreach ($result as $value) {
@@ -94,15 +95,18 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
                     }
                     ?>
                 </select>
+            </div>
 
+            <div class="col-lg-4 col-md-4 col-xs-12 ">
+                <select name="evenement" class="form-control">
+                    <option value=""> -- Evènement --</option>
+                </select>
             </div>
 
 
-            <div class="col-lg-8 col-md-8 col-xs-12 demo">
-
-                    <input type="text" id="config-demo" class="form-control">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-
+            <div class="col-lg-4 col-md-4 col-xs-12 demo">
+                <input type="text" id="config-demo" class="form-control">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
             </div>
 
         </div>
@@ -115,10 +119,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-lg-10 col-md-10 col-sm-10">
             <div class="loader text-center" style="display:none"><img src="images/res/loading.gif"></div>
 
-
             <div class="response"></div>
-
-
 
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
@@ -128,6 +129,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
 <script type="text/javascript" src="js/moment.min.js"></script>
 <script type="text/javascript" src="js/daterangepicker.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         var startDate=moment().subtract(29, 'days').format('YYYY-MM-DD'), endDate=moment().format('YYYY-MM-DD');
@@ -166,7 +168,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
         $.ajax({
                 type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
                 url: 'ajax/date-filteration.php', // the url where we want to POST
-                data: 'startDate=' + startDate + '&endDate=' + endDate + '&type=' + $('select[name="type"]').val(), // our data object
+                data: 'startDate=' + startDate + '&endDate=' + endDate + '&type=' + $('select[name="type"]').val() + '&eve=' + $('select[name="evenement"]').val() , // our data object
             })
             // using the done promise callback
             .done(function (data) {
@@ -177,7 +179,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
             });
     }
 
-        $('#selectType').on('change', function() {
+        $(' select[name="type"] , select[name="evenement"] ').on('change', function() {
 
             //console.log("je danse "+startDate);
 
@@ -185,7 +187,7 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
             $.ajax({
                     type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
                     url: 'ajax/date-filteration.php', // the url where we want to POST
-                    data: 'startDate=' + startDate + '&endDate=' + endDate + '&type=' + $('select[name="type"]').val(), // our data object
+                    data: 'startDate=' + startDate + '&endDate=' + endDate + '&type=' + $('select[name="type"]').val() + '&eve=' + $('select[name="evenement"]').val() , // our data object
                 })
                 // using the done promise callback
                 .done(function (data) {
@@ -195,8 +197,21 @@ $result = $req->fetchAll(PDO::FETCH_ASSOC);
                     // here we will handle errors and validation messages
                 });
 
+            $.ajax({
+                type: "POST",
+                url: "ajax/chargement.php",
+                data: {
+                    id : $(this).val(),
+                    type: "Chargement_Evenement",
+                },
+                success:function(data){
+                    $('select[name="evenement"]').html(data);
+                }
+            });
+
 
         });
+
 
 
     });

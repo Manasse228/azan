@@ -2,16 +2,20 @@
 include_once 'mvc/controleur/autoload.php';
 session_start();
 
+if(!isset($_SESSION['User'])){
+    header('Location: ../index.php');
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$pdo = Connection::getConnexion();
+$userManager = new UserManager($pdo);
+
 if (($_SERVER['REQUEST_METHOD'] == 'POST')
     && (isset($_POST['oldEmail'], $_POST['mewemail'], $_POST['mewemail2']))&& ($_POST['updtemail'] == 'changeremail')
 ) {
-
-    $pdo = Connection::getConnexion();
-    $userManager = new UserManager($pdo);
 
     $userManager->prepareToChangeEmail($_POST['oldEmail'], $_POST['mewemail'], $_SESSION['User']->getId());
 
@@ -24,8 +28,6 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')
 if (($_SERVER['REQUEST_METHOD'] == 'POST')
     && (isset($_POST['oldPassword'], $_POST['newPassword'], $_POST['newPassword2']))&& ($_POST['pwdupdt'] == 'updatemail')
 ) {
-    $pdo = Connection::getConnexion();
-    $userManager = new UserManager($pdo);
 
 }
 
@@ -113,7 +115,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')
                                 <button
                                     type="submit" class="btn btn-success btn-lg btn3d" name="updtemail"
                                     value="changeremail">
-                                    <span class="glyphicon glyphicon-pencil"></span> Modifier
+                                    <span class="glyphicon glyphicon-pencil"></span> Valider
                                 </button>
 
                                 <button type="reset" class="btn3d btn btn-danger btn-lg">
@@ -174,7 +176,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')
                                 <button
                                     type="submit" class="btn btn-success btn-lg btn3d" name="pwdupdt"
                                     value="updatemail">
-                                    <span class="glyphicon glyphicon-pencil"></span> Modifier
+                                    <span class="glyphicon glyphicon-pencil"></span> Valider
                                 </button>
 
                                 <button type="reset" class="btn3d btn btn-danger btn-lg">

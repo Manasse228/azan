@@ -20,18 +20,18 @@ class Connection
        /*$this->serveur = "mysql.info.unicaen.fr";
         $this->dbname = "21416699_4";
         $this->user = "21416699";
-        $this->password = "xohtheghooghohku";*/
+        $this->password = "xohtheghooghohku";
 
 
         $this->serveur = "localhost";
         $this->dbname = "azan";
         $this->user = "root";
-        $this->password = "Serge1992";
+        $this->password = "Serge1992";*/
 
-      /* $this->serveur = "91.216.107.164";
+       $this->serveur = "91.216.107.164";
         $this->dbname = "calen738121";
         $this->user = "calen738121";
-        $this->password = "Serge1992";*/
+        $this->password = "Serge1992";
 
         try {
             if (is_null(self::$conn)) {

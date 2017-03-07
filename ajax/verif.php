@@ -45,11 +45,11 @@ if (isset($_POST['rowid'])) {
                         break;
 
                     case 'pseudo':
-                        $result = $userManager->exists($_POST["pseudo"], "pseudouser");
+                        $result = $userManager->exists($_POST["pseudo"], "pseudo");
                         break;
 
                     case 'uptPseudo':
-                        $result = $userManager->checkColomunBeforeUpdate($_POST["pseudo"], "pseudouser", $_POST['oldPseudo']);
+                        $result = $userManager->checkColomunBeforeUpdate($_POST["pseudo"], "pseudo", $_POST['oldPseudo']);
                         break;
 
                     case 'email':
@@ -61,7 +61,7 @@ if (isset($_POST['rowid'])) {
                         break;
 
                     case 'nomEvevenement':
-                        $result = $evenementManager->exists($_POST["nomEve"], $_POST["lieuEve"]);
+                        $result = $evenementManager->exists($_POST["nom"], $_POST["lieu"]);
                         break;
 
                     default:

@@ -1,8 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 include_once "../../mvc/controleur/autoload.php";
 
@@ -19,7 +19,7 @@ foreach ($evenement as $db_event) {
     $i++;
 	$event = new stdClass();
 	$event->name = $db_event->getNom(); // Adapt with your suitable db field. If your db has not this field, please let it be : $event->name = "";
-	$event->image = "images/".$db_event->getPhotoDeCouverture(); // Adapt with your suitable db field. If your db has not this field, please let it be : $event->image = "";
+	$event->image = "serveur_image/".$db_event->getPhotoDeCouverture(); // Adapt with your suitable db field. If your db has not this field, please let it be : $event->image = "";
 	$event->day = date('j', strtotime($db_event->getDateDb()));
 	$event->month = date('n', strtotime($db_event->getDateDb()));
 	$event->year = date('Y', strtotime($db_event->getDateDb()));
@@ -38,7 +38,7 @@ foreach ($evenement as $db_event) {
 	$event->color = $i;
 	$event->location = $db_event->getLieu(); // Adapt with your suitable db field. If your db has not this field, please let it be : $event->location = "";
 	$event->prix = ($db_event->getPrix() == 0) ? " Entrée gratuite" : " ".$db_event->getPrix();
-	$event->description = $db_event->getDesription()."... <a target='_blank' href=http://localhost/azan//event/index.php?azan=".$db_event->getId()."> Plus de Détail </a>"; // Adapt with your suitable db field. If your db has not this field, please let it be : $event->description = "";
+	$event->description = $db_event->getDesription()."...  Plus de Détail "; // Adapt with your suitable db field. If your db has not this field, please let it be : $event->description = "";
 	array_push($events, $event);
 
 }

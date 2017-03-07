@@ -128,7 +128,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && ($_POST['mas'] == 'miseajour')
         <div class="form-group ">
             <div class="col-xs-12 col-md-12 col-lg-12">
                 <button name="mas" value="miseajour" class="btn btn-lg btn-primary " type="submit">
-                    <span class="glyphicon glyphicon-pencil"></span> Modification
+                    <span class="glyphicon glyphicon-pencil"></span>Valider
                 </button>
 
                 <button type="reset" class="btn btn-lg btn-primary btn-danger">

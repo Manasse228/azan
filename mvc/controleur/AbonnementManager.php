@@ -19,7 +19,7 @@ class AbonnementManager
         try {
             global $pdo;
 
-            $req = $pdo->prepare("INSERT INTO abonnement(user,typeve) VALUES (:user, :typeve)");
+            $req = $pdo->prepare("INSERT INTO abonnement(user,type_eve) VALUES (:user, :typeve)");
 
             $req->bindValue(':user', $user, PDO::PARAM_STR);
             $req->bindValue(':typeve', $typeve, PDO::PARAM_STR);

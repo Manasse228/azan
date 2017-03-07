@@ -20,8 +20,8 @@ class EvenementManager
             global $pdo;
 
             $pdo->beginTransaction();
-            $req = $pdo->prepare("INSERT INTO evenement(nomeve,lieueve,datepubeve,datedbeve,datefneve,
-                                    contact,prix,description,iduser,idtype)
+            $req = $pdo->prepare("INSERT INTO evenement(nom,lieu,date_pub,date_db,date_fn,
+                                    contact,prix,description,user,type)
             VALUES (:nomeve, :lieueve, :datepubeve, :datedbeve, :datefneve, :contact, :prix, :description, :iduser, :idtype)");
 
             $req->bindValue(':nomeve', $evenement->getNom(), PDO::PARAM_STR);
@@ -49,7 +49,7 @@ class EvenementManager
 
             $pdo->commit();
 
-            Utilities::POST_redirect('event/index.php?azan=' . $lastId);
+           // Utilities::POST_redirect('event/index.php?azan=' . $lastId);
 
 
         } catch (Exception $ex) {
@@ -70,9 +70,9 @@ class EvenementManager
             global $pdo;
 
             $pdo->beginTransaction();
-            $req = $pdo->prepare("UPDATE evenement set nomeve= :nom, lieueve= :lieu, prix= :prix,
-                 datepubeve= :datepub, datedbeve= :datedb, datefneve= :datefn, contact= :contact,
-                 description= :description, idtype= :typeeve  WHERE id= :id AND iduser= :userId ");
+            $req = $pdo->prepare("UPDATE evenement set nom= :nom, lieu= :lieu, prix= :prix,
+                 date_pub= :datepub, date_db= :datedb, date_fn = :datefn, contact= :contact,
+                 description= :description, type = :typeeve  WHERE id= :id AND user= :userId ");
 
             $req->bindValue(':nom', $evenement->getNom(), PDO::PARAM_STR);
             $req->bindValue(':lieu', $evenement->getLieu(), PDO::PARAM_STR);
@@ -102,31 +102,53 @@ class EvenementManager
 
     }
 
-    //Recupération des évènements
+    /*
+     * Recupération des de tous les évènements
+     * qui seront affichés sur le calendrier
+     */
     public function getAllEvent()
     {
         global $pdo;
-        $req = $pdo->prepare("SELECT e.nomeve, p.lien, e.lieueve, e.datedbeve, e.datefneve, e.description, e.id, e.prix
-        FROM evenement e, photos p, typephoto t
-        WHERE e.datepubeve <= now() AND e.datefneve >= now() AND e.id = p.ideve AND p.typephoto = t.id AND t.code = 'couv'");
+        $req = $pdo->prepare("SELECT e.nom, p.lien, e.lieu, e.date_db, e.date_fn, e.description, e.id, e.prix
+        FROM evenement e, photo p, type_photo t
+        WHERE e.date_pub <= now() AND e.date_fn >= now() AND e.id = p.id_eve AND p.type_photo = t.id AND t.id = 1 ");
         $req->execute();
 
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $tab = array();
         foreach ($data as $value) {
-            $tab[] = new Evenement($value["nomeve"], $value["lien"], $value["lieueve"],
-                $value["datedbeve"], $value["datefneve"], $value["description"], $value["id"], $value["prix"]);
+            $tab[] = new Evenement($value["nom"], $value["lien"], $value["lieu"],
+                $value["date_db"], $value["date_fn"], $value["description"], $value["id"], $value["prix"]);
         }
 
         return $tab;
     }
 
+    /*
+     * Je sais pas ce qu'il fait pur le moment
+     */
+    public function getEvenementsByType($id){
+        global $pdo;
+        $req = $pdo->prepare("SELECT *  FROM  type_evenement WHERE type = :val ");
+        $req->bindValue(':val', trim($id), PDO::PARAM_INT);
+        $req->execute();
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
-    public function getEvenementById($value, $typeData)
+        $tab_evenement = array();
+        foreach ($data as $value) {
+            $tab_evenement[] = array($value["id"] => $value["libelle"]) ;
+        }
+        return $tab_evenement;
+    }
+
+
+    /*
+     * Récupérer un évènement grâce à son ID
+     */
+    public function getEvenementById($value, $typeData="")
     {
 
         global $pdo;
-        // $req = $pdo->prepare("SELECT *  FROM  evenement WHERE id = :val AND datepubeve <= now() AND evenement.datefneve >= now()");
         $req = $pdo->prepare("SELECT *  FROM  evenement WHERE id = :val ");
         $req->bindValue(':val', trim($value), PDO::PARAM_STR);
         $req->execute();
@@ -139,14 +161,17 @@ class EvenementManager
                 break;
 
             default;
-                return new Evenement($data["id"], $data["nomeve"], $data["lieueve"], $data["datepubeve"], $data["datedbeve"],
-                    $data["datefneve"], $data["contact"], $data["prix"], $data["description"], $data["iduser"], $data["idtype"]);
+                return new Evenement($data["id"], $data["nom"], $data["lieu"], $data["date_pub"], $data["date_db"],
+                    $data["date_fn"], $data["contact"], $data["prix"], $data["description"], $data["user"], $data["type"]);
                 break;
         }
 
 
     }
 
+    /*
+     * zbr zbr
+     */
     public function getTypeById($id)
     {
         global $pdo;
@@ -157,28 +182,34 @@ class EvenementManager
         return $req->fetchColumn();
     }
 
+    /*
+     * Récupération d'évènement par utilisateur
+     */
     public function getEvenementByUserId($value)
     {
 
         global $pdo;
-        $req = $pdo->prepare("SELECT *  FROM  evenement WHERE iduser = :val ");
+        $req = $pdo->prepare("SELECT *  FROM  evenement WHERE id = :val ");
         $req->bindValue(':val', trim($value), PDO::PARAM_INT);
         $req->execute();
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
         $tab = array();
         foreach ($data as $value) {
-            $tab[] = new Evenement($value["id"], $value["nomeve"], $value["lieueve"], $value["datepubeve"], $value["datedbeve"],
-                $value["datefneve"], $value["contact"], $value["prix"], $value["description"], $value["iduser"], $value["idtype"]);
+            $tab[] = new Evenement($value["id"], $value["nom"], $value["lieu"], $value["date_pub"], $value["date_db"],
+                $value["date_fn"], $value["contact"], $value["prix"], $value["description"], $value["user"], $value["type"]);
         }
 
         return $tab;
     }
 
+    /*
+     * Vérification d'évènement par nom et par lieu
+     */
     public function checkNomLieu($nom, $lieu)
     {
         global $pdo;
-        $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieueve = :lieu and nomeve = :nom");
+        $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieu = :lieu and nom = :nom and date_fn >= now() ");
         $req->bindValue(':nom', trim($nom), PDO::PARAM_STR);
         $req->bindValue(':lieu', trim($lieu), PDO::PARAM_STR);
         $result = $req->execute();
@@ -191,6 +222,10 @@ class EvenementManager
         return ($count == 0) ? true : false;
     }
 
+    /*
+     * Vérification d'évènement par nom et par lieu
+     * avant mise à jour
+     */
     public function checkNomLieuForUpdate($nom, $lieu, $oldLieu, $oldName)
     {
 
@@ -198,7 +233,7 @@ class EvenementManager
             $count = 0;
         } else {
             global $pdo;
-            $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieueve = :lieu and nomeve = :nom");
+            $req = $pdo->prepare("SELECT COUNT(*) FROM  evenement WHERE lieu = :lieu and nom = :nom");
             $req->bindValue(':nom', trim($nom), PDO::PARAM_STR);
             $req->bindValue(':lieu', trim($lieu), PDO::PARAM_STR);
             $result = $req->execute();
@@ -214,18 +249,23 @@ class EvenementManager
         return ($count == 0) ? true : false;
     }
 
+    /*
+     * Suppression d'évènement à réécrire
+     * -on supprime les photos d'abord puis
+     * -on supprime l'évènement même
+     */
     public function deleteEvenement($nom, $lieu)
     {
         global $pdo;
 
-        $req = $pdo->prepare("Select id from evenement WHERE nomeve= :nom AND lieueve= :lieu");
+        $req = $pdo->prepare("Select id from evenement WHERE nom = :nom AND lieu = :lieu");
         $req->bindValue(':nom', $nom, PDO::PARAM_STR);
         $req->bindValue(':lieu', $lieu, PDO::PARAM_STR);
         $req->execute();
         $result = $req->fetchColumn();
 
 
-        $req = $pdo->prepare(" select id,ideve,lien,typephoto from photos where ideve= :id ");
+        $req = $pdo->prepare(" select id,ideve,lien,typephoto from photo where ideve= :id ");
         $req->bindValue('id', $result, PDO::PARAM_INT);
         $req->execute();
         $data = $req->fetchAll(PDO::FETCH_ASSOC);

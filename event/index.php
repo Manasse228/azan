@@ -13,11 +13,10 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     $msg = new FlashMessages();
 
     $evenementManager = new EvenementManager($pdo);
-    $evenement = $evenementManager->getEvenementById($id, "");
+    $evenement = $evenementManager->getEvenementById($id);
 
     $dateDebut = $evenement->getDateDb();
     //var_dump($dateDebut);
-
 
     $userManager = new UserManager($pdo);
     $user = $userManager->getUserById($evenement->getUser());
@@ -37,8 +36,7 @@ if ((isset($_GET['azan'])) AND ((int)$_GET['azan'] != 0)) {
     header('Location: ../searcheve.php');
 }
 
-if (($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['name'], $_POST['email'], $_POST['message']))
-    && $_POST['envoiEmail'] == "envoyer"
+if (($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['name'], $_POST['email'], $_POST['message'])) && $_POST['envoiEmail'] == "envoyer"
 ) {
 
 
@@ -145,9 +143,7 @@ if (($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['name'], $_POST['ema
             <?php
             $j = 0;
 
-            for ($i = 0;
-            $i < sizeof($photos);
-            $i++) {
+            for ($i = 0; $i < sizeof($photos); $i++) {
 
             if ($photos[$i]->getTypePhoto() == 1) {
             $j++;
@@ -156,7 +152,7 @@ if (($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['name'], $_POST['ema
             ?>
 
             <img class="img-responsive" alt="slider" style="height: 1000px; "
-                 src="../images/<?php echo $photos[$i]->getLien(); ?>">
+                 src="../serveur_image/<?php echo $photos[$i]->getLien(); ?>">
             <div class="carousel-caption">
                 <h4><?php echo $evenement->getNom(); ?></h4>
             </div>

@@ -13,8 +13,8 @@ if (isset($_GET['pcaisas'])) {
 
     $code = $_GET["pcaisas"];
 
-    if ($userManager->exists($code, 'codeactivation') == false) {
-        $user = $userManager->getUser('codeactivation', $code);
+    if ($userManager->exists($code, 'code_activation') == false) {
+        $user = $userManager->getUser('code_activation', $code);
         if ($user->getActive() == 0) {
             //On procéde à l'activation du compte
             $userManager->updateUserByColumn('active', 1, $user->getId());
@@ -51,7 +51,7 @@ Votre Compte a été activé avec succès! . <br/>
         $email = $_GET['email'];
         $id = $_GET['rue'];
 
-        if ($userManager->exists($code, 'codeactivation') == false) {
+        if ($userManager->exists($code, 'code_activation') == false) {
             $user = $userManager->getUser('codeactivation', $code);
             if ($user->getActive() == 0) {
                 //On procéde à l'activation du compte

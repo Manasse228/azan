@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['btnNveEve'] == 'btnValNveEve
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Acceuil</title>
+    <title>Acceuil </title>
 
     <?php include 'include/headerfile.php' ?>
 
@@ -77,23 +77,16 @@ $msg->display();
     <div class="container">
 
 
-        <div class="row">
+        <div class="form-group">
 
-            <div class="col-lg-9 col-md-9 col-xs-12">
-                <div class="col-md-4 col-md-offset-4 demo">
-                    <input type="text" id="config-demo" class="form-control">
-                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
 
-                </div>
 
-            </div>
-
-            <div class=" col-md-3 col-lg-3  col-xs-12 demo">
+            <div class=" col-md-8 col-lg-8  col-xs-12 ">
 
                 <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="post">
                     <button
                         class="btn btn-danger btn-lg " name="btnNveEve" value="btnValNveEve">
-                        <span class="glyphicon glyphicon-plus"></span> Créer un nouveau évènement
+                        <span class="glyphicon glyphicon-plus"></span> Nouveau évènement
                     </button>
                 </form>
 
@@ -107,6 +100,14 @@ $msg->display();
 
 </div>
 
+<!--   <div class="col-lg-9 col-md-9 col-xs-12">
+               <div class="col-md-4 col-md-offset-4 demo">
+                   <input type="text" id="config-demo" class="form-control">
+                   <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+
+               </div>
+
+           </div> -->
 
 
 
